@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- *
+ *TEST TEST TEST Making sure the sync will do what I think it will! TEST TEST TEST
  * @author Teancum
  */
 public class InventoryClass implements Serializable
