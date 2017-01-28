@@ -17,6 +17,9 @@ public class Location implements Serializable {
     private int column;
     private boolean visited;
     private String resource;
+    
+    public Location() {
+    }
 
     public int getRow() {
         return row;
@@ -50,9 +53,6 @@ public class Location implements Serializable {
         this.resource = resource;
     }
 
-    public Location() {
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -63,6 +63,11 @@ public class Location implements Serializable {
         return hash;
     }
 
+    @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", resource=" + resource + '}';
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -90,9 +95,6 @@ public class Location implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", resource=" + resource + '}';
-    }
+    
     
 }

@@ -15,6 +15,9 @@ import java.util.Objects;
 public class Game implements Serializable {
     private double totalTime;
     private String userProfile;
+    
+    public Game()
+    {}
 
     public double getTotalTime() {
         return totalTime;
@@ -32,9 +35,6 @@ public class Game implements Serializable {
         this.userProfile = userProfile;
     } 
 
-    public Game() {
-    }
-
     @Override
     public int hashCode() {
         int hash = 3;
@@ -43,6 +43,11 @@ public class Game implements Serializable {
         return hash;
     }
 
+     @Override
+    public String toString() {
+        return "Game{" + "totalTime=" + totalTime + ", userProfile=" + userProfile + '}';
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -64,9 +69,5 @@ public class Game implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Game{" + "totalTime=" + totalTime + ", userProfile=" + userProfile + '}';
-    }
     
 }

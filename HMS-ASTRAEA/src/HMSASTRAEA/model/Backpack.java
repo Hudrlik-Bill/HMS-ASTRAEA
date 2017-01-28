@@ -18,6 +18,9 @@ public class Backpack implements Serializable {
     private int maxWeight;
     private int itemWeight;
     private int loadedWeight;
+    
+    public Backpack() {
+    }
 
     public String getItemType() {
         return itemType;
@@ -59,9 +62,6 @@ public class Backpack implements Serializable {
         this.loadedWeight = loadedWeight;
     }
 
-    public Backpack() {
-    }
-
     @Override
     public int hashCode() {
         int hash = 5;
@@ -73,6 +73,11 @@ public class Backpack implements Serializable {
         return hash;
     }
 
+    @Override
+    public String toString() {
+        return "Backpack{" + "itemType=" + itemType + ", itemNumber=" + itemNumber + ", maxWeight=" + maxWeight + ", itemWeight=" + itemWeight + ", loadedWeight=" + loadedWeight + '}';
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -103,9 +108,6 @@ public class Backpack implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Backpack{" + "itemType=" + itemType + ", itemNumber=" + itemNumber + ", maxWeight=" + maxWeight + ", itemWeight=" + itemWeight + ", loadedWeight=" + loadedWeight + '}';
-    }
+    
     
 }

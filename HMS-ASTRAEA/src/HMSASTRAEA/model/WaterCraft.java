@@ -21,6 +21,9 @@ public class WaterCraft implements Serializable {
     private String itemType;
     private int itemWeight;
     private int loadedWeight;
+    
+     public WaterCraft() {
+    }
 
     public int getCraftLength() {
         return craftLength;
@@ -86,9 +89,6 @@ public class WaterCraft implements Serializable {
         this.loadedWeight = loadedWeight;
     }
 
-    public WaterCraft() {
-    }
-
     @Override
     public int hashCode() {
         int hash = 3;
@@ -101,6 +101,11 @@ public class WaterCraft implements Serializable {
         hash = 83 * hash + this.itemWeight;
         hash = 83 * hash + this.loadedWeight;
         return hash;
+    }
+    
+    @Override
+    public String toString() {
+        return "WaterCraft{" + "craftLength=" + craftLength + ", craftType=" + craftType + ", maxWeight=" + maxWeight + ", craftWidth=" + craftWidth + ", itemNumber=" + itemNumber + ", itemType=" + itemType + ", itemWeight=" + itemWeight + ", loadedWeight=" + loadedWeight + '}';
     }
 
     @Override
@@ -140,11 +145,6 @@ public class WaterCraft implements Serializable {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "WaterCraft{" + "craftLength=" + craftLength + ", craftType=" + craftType + ", maxWeight=" + maxWeight + ", craftWidth=" + craftWidth + ", itemNumber=" + itemNumber + ", itemType=" + itemType + ", itemWeight=" + itemWeight + ", loadedWeight=" + loadedWeight + '}';
     }
     
 }

@@ -14,6 +14,9 @@ import java.util.Objects;
  */
 public class Shelter implements Serializable {
     private String shelterInventory;
+    
+    public Shelter() {
+    }
 
     public String getShelterInventory() {
         return shelterInventory;
@@ -23,9 +26,6 @@ public class Shelter implements Serializable {
         this.shelterInventory = shelterInventory;
     }
 
-    public Shelter() {
-    }
-
     @Override
     public int hashCode() {
         int hash = 5;
@@ -33,6 +33,11 @@ public class Shelter implements Serializable {
         return hash;
     }
 
+    @Override
+    public String toString() {
+        return "Shelter{" + "shelterInventory=" + shelterInventory + '}';
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -49,11 +54,5 @@ public class Shelter implements Serializable {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Shelter{" + "shelterInventory=" + shelterInventory + '}';
-    }
-    
+    }    
 }
