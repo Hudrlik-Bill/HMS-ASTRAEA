@@ -5,10 +5,7 @@
  */
 package HMSASTRAEA.control;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
 
 /**
  *
@@ -19,18 +16,12 @@ public class ActionControlTest {
     public ActionControlTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+
 
     /**
      * Test of buildContainer method, of class ActionControl.
      */
-    @Test
+   
     public void testBuildContainer() 
     {
         System.out.println("Build container 01");
@@ -121,6 +112,10 @@ public class ActionControlTest {
         System.out.println("Expected Result " + expResult + " Cart bound");
         System.out.println("Actual Result " + result + "\n");
         assertEquals(expResult, result, 0.0);
+    }
+
+    private void assertEquals(double expResult, double result, double d) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
