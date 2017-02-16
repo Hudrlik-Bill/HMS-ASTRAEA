@@ -5,7 +5,7 @@
  */
 package hms.astraea;
 
-import HMSASTRAEA.model.InventoryClass;
+import HMSASTRAEA.model.Inventory;
 import HMSASTRAEA.model.WaterCraft;
 import HMSASTRAEA.model.Backpack;
 import HMSASTRAEA.model.Shelter;
@@ -24,11 +24,11 @@ public class HMSASTRAEA {
      */
     public static void main(String[] args) {
 
-        InventoryClass wood = new InventoryClass();
+        Inventory wood = new Inventory();
 
-        wood.setItemType("ship plank");
-        wood.setItemNumber(1);
-        wood.setRequiredAmount(1);
+        wood.setItemType(1);
+        wood.setItemQuantity(1);
+        wood.setRequiredQuantity(1);
 
         String itemDescription = wood.toString();
         System.out.println(wood);
