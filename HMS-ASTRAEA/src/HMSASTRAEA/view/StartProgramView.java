@@ -5,6 +5,11 @@
  */
 package HMSASTRAEA.view;
 
+import HMSASTRAEA.control.GameControl;
+import HMSASTRAEA.model.Profile;
+
+import java.util.Scanner;
+
 /*
  * @author Teancum
  */
@@ -39,14 +44,15 @@ public class StartProgramView
         StartProgramView startProgramView = new StartProgramView();
             startProgramView.displayStartProgramView();
     }
-
-    public void displayStartProgramView() 
+    
+    public void displayStartProgramView()
     {
+        
         boolean done = false;
             do
             {
                 String playerName = this.getPlayerName();
-                if (playerName.toUpperCase().equals(Q))
+                if (playerName.toUpperCase().equals("Q"))
                         return;
                 
                 done = this.doAction(playerName);
@@ -56,13 +62,39 @@ public class StartProgramView
 
     private String getPlayerName() 
     {
-        System.out.println("\n*** getPlayerName() function called ***");
-                return "Doughnut";
+       Scanner nameInput = new Scanner(System.in);
+       String playerName = "";
+       boolean validateMe = false; 
+            
+       while (!validateMe)
+       {
+           System.out.println("\n" + this.promptMessage);
+           playerName = nameInput.nextLine();
+           playerName = playerName.trim(); 
+           
+           if (playerName.length() < 1)
+           {
+               System.out.println("\nInvalid input. Name cannot be blank.");
+               continue;
+           }
+           
+           break;
+       }
+       
+       return playerName;
     }
 
     private boolean doAction(String playerName) 
     {
-       System.out.println("\n*** doAction() function called, return boolean ***");
+       if (playerName.length() < 2)
+       {
+           System.out.println("Invalid. Name must be more than one character.");
+           return false;
+       }
+       
+       Profile profile;
+       profile = GameControl.createProfile(playerName);
                 return true;
     }
+    
 }

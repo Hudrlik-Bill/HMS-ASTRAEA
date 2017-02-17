@@ -9,6 +9,20 @@ package HMSASTRAEA.control;
  *
  * @author Teancum
  */
-public class GameControl {
-    
+public class GameControl 
+{
+
+    public GameControl() {
+    }
+
+    /**
+     *
+     * @param playerName
+     * @return
+     */
+    public static String createProfile(String playerName)
+    {
+        System.out.println("\n*** createProfile() function has been called!");
+        return "Church";
+    }
 }
