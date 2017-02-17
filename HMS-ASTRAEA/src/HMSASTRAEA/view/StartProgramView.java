@@ -18,6 +18,7 @@ public class StartProgramView
 {
     private String promptMessage;
     
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public StartProgramView() 
     {
         this.promptMessage = "\nPlease enter your name: ";
@@ -91,10 +92,31 @@ public class StartProgramView
            System.out.println("Invalid. Name must be more than one character.");
            return false;
        }
-       
-       Profile profile;
-       profile = GameControl.createProfile(playerName);
-                return true;
-    }
+
     
+       Profile profileInstance = GameControl.createProfile(playerName);
+       
+       if (profileInstance == null)
+       {
+           System.out.println("\nError creating profile.");
+           return false;
+       }
+       
+       this.displayWelcome(profileInstance);
+       
+       return true;
+    }
+
+    private void displayWelcome(Profile profileInstance) 
+    {
+        System.out.println("\n/////////////////////////"
+                         + "\n     Welcome, " + profileInstance.getName()
+                         + "\n     Enjoy the Game!"
+                         + "\n/////////////////////////");
+        
+        GameMenu gameMenuObject = new GameMenu();
+        
+        gameMenuObject.displayGameMenu();
+    }
+
 }

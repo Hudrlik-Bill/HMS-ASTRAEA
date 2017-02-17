@@ -5,6 +5,8 @@
  */
 package HMSASTRAEA.control;
 
+import HMSASTRAEA.model.Profile;
+
 /**
  *
  * @author Teancum
@@ -15,14 +17,17 @@ public class GameControl
     public GameControl() {
     }
 
-    /**
-     *
-     * @param playerName
-     * @return
-     */
-    public static String createProfile(String playerName)
+    public static Profile createProfile(String playerName)
     {
-        System.out.println("\n*** createProfile() function has been called!");
-        return "Church";
+        if (playerName == null)
+        {
+            return null;
+        }
+        System.out.println("\n*** createProfile() called ***");
+        
+        Profile profileInstance = new Profile();
+        profileInstance.setName(playerName);
+        
+        return profileInstance;
     }
 }

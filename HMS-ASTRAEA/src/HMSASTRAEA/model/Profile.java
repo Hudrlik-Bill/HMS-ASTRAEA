@@ -21,6 +21,8 @@ public class Profile implements Serializable
         private String inventory;
         private String optionSettings;
 
+
+
     public Profile() 
     {    }
 
@@ -145,6 +147,7 @@ public class Profile implements Serializable
         {
             return false;
         }
+        
         return true;
     }
         
