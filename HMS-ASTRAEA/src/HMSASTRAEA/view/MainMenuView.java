@@ -5,6 +5,9 @@
  */
 package HMSASTRAEA.view;
 
+import HMSASTRAEA.control.GameControl;
+import HMSASTRAEA.model.Game;
+import HMSASTRAEA.model.Profile;
 import java.util.Scanner;
 
 
@@ -12,7 +15,7 @@ import java.util.Scanner;
  *
  * @author Teancum
  */
-public class GameMenu 
+public class MainMenuView 
 {
     private String gameMenu;
 
@@ -28,6 +31,7 @@ public class GameMenu
         boolean check = false;
         do 
         {
+            System.out.println(gameMenu);
             String userChoice = this.getUserChoice();
             if (userChoice.toUpperCase().equals("Q"))
             {
@@ -61,25 +65,40 @@ public class GameMenu
                         break;
                     case "H": this.displayHelpMenu();
                         break;
-                    default: System.out.println("Invalid selection. Please enter 'N', 'R', 'O', 'H', or 'Q'");
+                    default: 
+                        {   
+                            System.out.println("Invalid selection. Please enter 'N', 'R', 'O', 'H', or 'Q'");
+                            //System.out.println(gameMenu);
+                        }
                 }
         return false;
     }
 
-    private void startNewGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void startNewGame() 
+    {
+        System.out.println("*** startNewGame() called***");
+        GameControl.createNewGame(Game.getUserProfile());
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
     }
 
-    private void resumeSavedGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void resumeSavedGame() 
+    {
+        System.out.println("*** resumeSavedGame() called ***");
     }
 
-    private void displayOptionsMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void displayOptionsMenu() 
+    {
+        System.out.println("*** displayOptionsMenu() called ***");
     }
 
-    private void displayHelpMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void displayHelpMenu() 
+    {
+        System.out.println("*** displayHelpMenu() called ***");
+        
+        HelpMenuView helpMenu = new HelpMenuView(); 
+        helpMenu.displayGameMenu();
     }
 
 }

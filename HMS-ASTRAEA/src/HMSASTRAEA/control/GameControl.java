@@ -30,4 +30,9 @@ public class GameControl
         
         return profileInstance;
     }
+    
+    public static void createNewGame(Profile profile)
+    {
+        System.out.println("\n*** createNewGame() called ***");
+    }
 }

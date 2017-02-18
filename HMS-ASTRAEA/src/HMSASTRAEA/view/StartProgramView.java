@@ -114,7 +114,7 @@ public class StartProgramView
                          + "\n     Enjoy the Game!"
                          + "\n/////////////////////////");
         
-        GameMenu gameMenuObject = new GameMenu();
+        MainMenuView gameMenuObject = new MainMenuView();
         
         gameMenuObject.displayGameMenu();
     }
