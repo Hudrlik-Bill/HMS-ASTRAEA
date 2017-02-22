@@ -23,11 +23,10 @@ public class HelpMenuView
                       + "\nP - PRODUCT INFORMATION & FAQ"
                       + "\nQ - QUIT";
         
-        System.out.println(helpMenu);
-        
         boolean check = false;
         do 
         {
+            System.out.println(helpMenu);
             String userChoice = this.getUserChoice();
             if (userChoice.toUpperCase().equals("Q"))
             {
@@ -62,7 +61,6 @@ public class HelpMenuView
                     default: 
                     {
                         System.out.println("Invalid selection. Please enter 'G', 'C', 'P', or 'Q'");
-                        System.out.println(helpMenu);
                     }
                 }
         return false;
