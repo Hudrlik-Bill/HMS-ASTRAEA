@@ -15,7 +15,7 @@ public class HelpMenuView
 {
     private String helpMenu;
 
-    public void displayGameMenu() 
+    public void displayHelpMenu() 
     {
         this.helpMenu = "\nHELP MENU"
                       + "\nG - GAME PLAY"

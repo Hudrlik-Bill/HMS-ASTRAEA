@@ -98,7 +98,7 @@ public class MainMenuView
         System.out.println("*** displayHelpMenu() called ***");
         
         HelpMenuView helpMenu = new HelpMenuView(); 
-        helpMenu.displayGameMenu();
+        helpMenu.displayHelpMenu();
     }
 
 }
