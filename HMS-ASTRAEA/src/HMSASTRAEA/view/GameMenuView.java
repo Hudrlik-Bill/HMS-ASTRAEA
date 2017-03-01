@@ -13,7 +13,7 @@ class GameMenuView {
 
     void displayMenu() 
     {
-        System.out.println("\n*** displayMenu(0 called ***");
+        System.out.println("\n*** displayMenu() called ***");
     }
     
 }
