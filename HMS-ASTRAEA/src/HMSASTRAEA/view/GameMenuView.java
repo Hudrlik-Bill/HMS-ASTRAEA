@@ -11,47 +11,19 @@ import java.util.Scanner;
  *
  * @author Teancum
  */
-class GameMenuView 
+public class GameMenuView extends View
 {        
-    private String gameMenu;
-
-    public void displayMenu() 
+    public GameMenuView()
     {
-<<<<<<< HEAD
-        System.out.println("\n*** displayMenu() called ***");
-=======
-        this.gameMenu = "\nGAME MENU"
+                super(  "\nGAME MENU"
                       + "\nA - Action"
                       + "\nI - View Inventory"
                       + "\nH - View Health"
                       + "\nM - View Map"
-                      + "\nQ - QUIT";
-        
-        boolean check = false;
-        do 
-        {
-            System.out.println(gameMenu);
-            String userChoice = this.getUserChoice();
-            if (userChoice.toUpperCase().equals("Q"))
-            {
-                return;
-            }
-            
-            check = this.doChoice(userChoice);
-        }
-        while (!check);
+                      + "\nQ - QUIT");
     }
-
-    private String getUserChoice() {
-        System.out.println("\nPlease enter your choice: ");
-        Scanner userInput = new Scanner(System.in);
-        String userChoice = userInput.nextLine();
-        userChoice = userChoice.trim();
-        userChoice = userChoice.toUpperCase();
-        return userChoice;
-    }
-
-    private boolean doChoice(String userChoice) {
+    @Override
+    public boolean doChoice(String userChoice) {
         switch (userChoice)
                 {
                     case "A": this.actionMenu();
@@ -84,6 +56,5 @@ class GameMenuView
 
     private void displayMap() {
         System.out.println("\n*** displayMap() called ***");
->>>>>>> origin/master
     }
 }

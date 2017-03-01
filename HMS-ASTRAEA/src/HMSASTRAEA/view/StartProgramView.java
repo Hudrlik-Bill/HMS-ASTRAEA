@@ -116,7 +116,7 @@ public class StartProgramView
         
         MainMenuView gameMenuObject = new MainMenuView();
         
-        gameMenuObject.displayGameMenu();
+        gameMenuObject.displayMenu();
     }
 
 }

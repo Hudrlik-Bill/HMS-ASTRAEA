@@ -7,53 +7,26 @@ package HMSASTRAEA.view;
 
 import HMSASTRAEA.control.GameControl;
 import HMSASTRAEA.model.Game;
-import HMSASTRAEA.model.Profile;
-import java.util.Scanner;
 
 
 /**
  *
  * @author Teancum
  */
-public class MainMenuView 
+public class MainMenuView extends View
 {
-    private String gameMenu;
-
-    public void displayGameMenu() 
+    public MainMenuView()
     {
-        this.gameMenu = "\nMAIN MENU"
+        super ("\nMAIN MENU"
                       + "\nN - NEW GAME"
                       + "\nR - RESUME GAME"
                       + "\nO - OPTIONS"
                       + "\nH - HELP"
-                      + "\nQ - QUIT";
-        
-        boolean check = false;
-        do 
-        {
-            System.out.println(gameMenu);
-            String userChoice = this.getUserChoice();
-            if (userChoice.toUpperCase().equals("Q"))
-            {
-                return;
-            }
-            
-            check = this.doChoice(userChoice);
-        }
-        while (!check);
+                      + "\nQ - QUIT");
     }
 
-    private String getUserChoice() 
-    {
-        System.out.println("\nPlease enter your choice: ");
-        Scanner userInput = new Scanner(System.in);
-        String userChoice = userInput.nextLine();
-        userChoice = userChoice.trim();
-        userChoice = userChoice.toUpperCase();
-        return userChoice;
-    }
-
-    private boolean doChoice(String userChoice) 
+    @Override
+    public boolean doChoice(String userChoice) 
     {
         switch (userChoice)
                 {
@@ -98,7 +71,7 @@ public class MainMenuView
         System.out.println("*** displayHelpMenu() called ***");
         
         HelpMenuView helpMenu = new HelpMenuView(); 
-        helpMenu.displayHelpMenu();
+        helpMenu.displayMenu();
     }
 
 }

@@ -11,44 +11,19 @@ import java.util.Scanner;
  *
  * @author Teancum
  */
-public class HelpMenuView 
+public class HelpMenuView extends View
 {
-    private String helpMenu;
-
-    public void displayHelpMenu() 
+    public HelpMenuView()
     {
-        this.helpMenu = "\nHELP MENU"
+        super   (       "\nHELP MENU"
                       + "\nG - GAME PLAY"
                       + "\nC - COMMAND KEYS"
                       + "\nP - PRODUCT INFORMATION & FAQ"
-                      + "\nQ - QUIT";
-        
-        boolean check = false;
-        do 
-        {
-            System.out.println(helpMenu);
-            String userChoice = this.getUserChoice();
-            if (userChoice.toUpperCase().equals("Q"))
-            {
-                return;
-            }
-            
-            check = this.doChoice(userChoice);
-        }
-        while (!check);
+                      + "\nQ - QUIT");
     }
 
-    private String getUserChoice() 
-    {
-        System.out.println("\nPlease enter your choice: ");
-        Scanner userInput = new Scanner(System.in);
-        String userChoice = userInput.nextLine();
-        userChoice = userChoice.trim();
-        userChoice = userChoice.toUpperCase();
-        return userChoice;
-    }
-
-    private boolean doChoice(String userChoice) 
+    @Override
+    public boolean doChoice(String userChoice) 
     {
         switch (userChoice)
                 {
