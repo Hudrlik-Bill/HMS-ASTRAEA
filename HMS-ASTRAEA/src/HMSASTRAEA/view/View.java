@@ -13,11 +13,11 @@ import java.util.Scanner;
  */
 public abstract class View implements ViewInterface
 {
-    protected String displayMessage;
+    protected String displayMenu;
     
     public View(String message)
     {
-        this.displayMessage = message;
+        this.displayMenu = message;
     }
     
     @Override
@@ -26,7 +26,8 @@ public abstract class View implements ViewInterface
         boolean check = false;
             do 
             {
-            String userChoice = this.getUserChoice();
+                System.out.println(displayMenu);
+                String userChoice = this.getUserChoice();
                 if (userChoice.toUpperCase().equals("Q"))
                 {
                     return;

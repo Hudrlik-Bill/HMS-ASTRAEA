@@ -40,12 +40,6 @@ public class StartProgramView
         );
     }
     
-    public static void main (String[] args)
-    {
-        StartProgramView startProgramView = new StartProgramView();
-            startProgramView.displayStartProgramView();
-    }
-    
     public void displayStartProgramView()
     {
         
