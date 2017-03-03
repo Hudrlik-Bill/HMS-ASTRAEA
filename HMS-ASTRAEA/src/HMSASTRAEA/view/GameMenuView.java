@@ -44,6 +44,8 @@ public class GameMenuView extends View
 
     private void actionMenu() {
         System.out.println("\n*** actionMenu() called ***");
+        ActionView actionMenu = new ActionView(); 
+        actionMenu.displayMenu();
     }
 
     private void displayIventory() {
