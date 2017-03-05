@@ -20,6 +20,7 @@ public class GameMenuView extends View
                       + "\nI - View Inventory"
                       + "\nH - View Health"
                       + "\nM - View Map"
+                      + "\nS - Save Game"
                       + "\nQ - QUIT");
     }
     @Override
@@ -34,9 +35,11 @@ public class GameMenuView extends View
                         break;
                     case "M": this.displayMap();
                         break;    
+                    case "S": this.saveGame();
+                        break; 
                     default: 
                     {
-                        System.out.println("Invalid selection. Please enter 'A', 'I', 'H', 'M', or 'Q'");
+                        System.out.println("Invalid selection. Please enter 'A', 'I', 'H', 'M', 'S', or 'Q'");
                     }
                 }
         return false;
@@ -56,5 +59,10 @@ public class GameMenuView extends View
 
     private void displayMap() {
         System.out.println("\n*** displayMap() called ***");
+    }
+    private void saveGame() {
+        SaveMenuView saveMenu = new SaveMenuView();
+        saveMenu.displayMenu();
+        //System.out.println("\n*** saveGame() called ***");
     }
 }
