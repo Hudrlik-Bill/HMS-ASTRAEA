@@ -20,9 +20,12 @@ public class Game implements Serializable
     private int health;
     private int inventory;
     private String optionSettings;
+    private boolean started = false;
+    private String saveName = "empty";
 
     public Game() {
     }
+    
 
     public int getTotalTime() {
         return totalTime;
@@ -71,6 +74,24 @@ public class Game implements Serializable
     public void setOptionSettings(String optionSettings) {
         this.optionSettings = optionSettings;
     }
+
+    public boolean isStarted() {
+        return started;
+    }
+
+    public void setStarted(boolean started) {
+        this.started = started;
+    }
+
+    public String getSaveName() {
+        return saveName;
+    }
+
+    public void setSaveName(String saveName) {
+        this.saveName = saveName;
+    }
+    
+    
 
     @Override
     public int hashCode() {

@@ -6,6 +6,8 @@
 package HMSASTRAEA_MAIN;
 
 import HMSASTRAEA.view.StartProgramView;
+import HMSASTRAEA.model.Game;
+
 
 /**
  *
@@ -13,6 +15,7 @@ import HMSASTRAEA.view.StartProgramView;
  */
 public class HMS_ASTRAEA_MAIN 
 {
+    
         public static void main (String[] args)
     {
         StartProgramView startProgramView = new StartProgramView();
