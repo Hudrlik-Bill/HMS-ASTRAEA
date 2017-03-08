@@ -41,7 +41,6 @@ public class MainMenuView extends View
                     default: 
                         {   
                             System.out.println("Invalid selection. Please enter 'N', 'R', 'O', 'H', or 'Q'");
-                            //System.out.println(gameMenu);
                         }
                 }
         return false;

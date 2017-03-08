@@ -11,63 +11,39 @@ package HMSASTRAEA.model;
  */
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Inventory implements Serializable
 {
+    private ArrayList<Container>containerList;
+
+    public Inventory() 
+    {
+        
+    }
     
-    private int itemType;
-    private int itemQuantity;
-    private int itemWeight;
-    private int requiredQuantity;
+    public ArrayList getContainerList() 
+    {
+        return containerList;
+    }
     
-    public Inventory() {
-    }
-
-    public int getItemType() {
-        return itemType;
-    }
-
-    public void setItemType(int itemType) {
-        this.itemType = itemType;
-    }
-
-    public int getItemQuantity() {
-        return itemQuantity;
-    }
-
-    public void setItemQuantity(int itemQuantity) {
-        this.itemQuantity = itemQuantity;
-    }
-
-    public int getItemWeight() {
-        return itemWeight;
-    }
-
-    public void setItemWeight(int itemWeight) {
-        this.itemWeight = itemWeight;
-    }
-
-    public int getRequiredQuantity() {
-        return requiredQuantity;
-    }
-
-    public void setRequiredQuantity(int requiredQuantity) {
-        this.requiredQuantity = requiredQuantity;
+    public void setContainerList(ArrayList containerList)
+    {
+        this.containerList = containerList;
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode() 
+    {
         int hash = 7;
-        hash = 53 * hash + this.itemType;
-        hash = 53 * hash + this.itemQuantity;
-        hash = 53 * hash + this.itemWeight;
-        hash = 53 * hash + this.requiredQuantity;
+        hash = 89 * hash + Objects.hashCode(this.containerList);
         return hash;
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj) 
+    {
         if (this == obj) {
             return true;
         }
@@ -78,25 +54,17 @@ public class Inventory implements Serializable
             return false;
         }
         final Inventory other = (Inventory) obj;
-        if (this.itemType != other.itemType) {
-            return false;
-        }
-        if (this.itemQuantity != other.itemQuantity) {
-            return false;
-        }
-        if (this.itemWeight != other.itemWeight) {
-            return false;
-        }
-        if (this.requiredQuantity != other.requiredQuantity) {
+        if (!Objects.equals(this.containerList, other.containerList)) {
             return false;
         }
         return true;
     }
 
     @Override
-    public String toString() {
-        return "Inventory{" + "itemType=" + itemType + ", itemQuantity=" + itemQuantity + ", itemWeight=" + itemWeight + ", requiredQuantity=" + requiredQuantity + '}';
+    public String toString() 
+    {
+        return "Inventory{" + "containerList=" + containerList + '}';
     }
-
+    
     
 }

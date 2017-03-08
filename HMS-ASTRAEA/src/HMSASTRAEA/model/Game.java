@@ -18,10 +18,12 @@ public class Game implements Serializable
     private static Profile userProfile;
     private int milestone;
     private int health;
-    private int inventory;
     private String optionSettings;
     private boolean started = false;
     private String saveName = "empty";
+    
+    private Map map;
+    private Inventory inventory;
 
     public Game() {
     }
@@ -59,11 +61,11 @@ public class Game implements Serializable
         this.health = health;
     }
 
-    public int getInventory() {
+    public Inventory getInventory() {
         return inventory;
     }
 
-    public void setInventory(int inventory) {
+    public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
 
@@ -91,7 +93,13 @@ public class Game implements Serializable
         this.saveName = saveName;
     }
     
+    public Map getMap(){
+        return map;
+    }
     
+    public void setMap(Map map) {
+        this.map = map;
+    }
 
     @Override
     public int hashCode() {
@@ -100,7 +108,7 @@ public class Game implements Serializable
         hash = 79 * hash + Objects.hashCode(this.userProfile);
         hash = 79 * hash + this.milestone;
         hash = 79 * hash + this.health;
-        hash = 79 * hash + this.inventory;
+        //hash = 79 * hash + this.inventory;
         hash = 79 * hash + Objects.hashCode(this.optionSettings);
         return hash;
     }
