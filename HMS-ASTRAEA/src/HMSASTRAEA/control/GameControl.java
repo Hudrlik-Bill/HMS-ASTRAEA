@@ -49,7 +49,7 @@ public class GameControl
         newGame.setTotalTime(0);
         newGame.setMilestone(0);
         newGame.setHealth(100);
-        newGame.setInventory(0);
+        newGame.setInventory(null);
         newGame.setOptionSettings("none");
         newGame.setStarted(true);
         setCurrentGame(newGame);
