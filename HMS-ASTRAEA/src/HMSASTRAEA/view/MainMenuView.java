@@ -64,6 +64,9 @@ public class MainMenuView extends View
     private void displayOptionsMenu() 
     {
         System.out.println("*** displayOptionsMenu() called ***");
+        
+        OptionsMenuView optionsMenu = new OptionsMenuView();
+        optionsMenu.displayMenu();
     }
 
     private void displayHelpMenu() 
