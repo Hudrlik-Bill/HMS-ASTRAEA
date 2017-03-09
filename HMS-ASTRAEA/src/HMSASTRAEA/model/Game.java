@@ -17,17 +17,17 @@ public class Game implements Serializable
     private int totalTime;
     private static Profile userProfile;
     private int milestone;
-    private int health;
+    private Health health;
     private String optionSettings;
     private boolean started = false;
     private String saveName = "empty";
     
     private Map map;
     private Inventory inventory;
+    private Character character;
 
     public Game() {
     }
-    
 
     public int getTotalTime() {
         return totalTime;
@@ -41,8 +41,8 @@ public class Game implements Serializable
         return userProfile;
     }
 
-    public void setUserProfile(Profile userProfile) {
-        this.userProfile = userProfile;
+    public static void setUserProfile(Profile userProfile) {
+        Game.userProfile = userProfile;
     }
 
     public int getMilestone() {
@@ -53,20 +53,12 @@ public class Game implements Serializable
         this.milestone = milestone;
     }
 
-    public int getHealth() {
+    public Health getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(Health health) {
         this.health = health;
-    }
-
-    public Inventory getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
     }
 
     public String getOptionSettings() {
@@ -92,31 +84,51 @@ public class Game implements Serializable
     public void setSaveName(String saveName) {
         this.saveName = saveName;
     }
-    
-    public Map getMap(){
+
+    public Map getMap() {
         return map;
     }
-    
+
     public void setMap(Map map) {
         this.map = map;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 79 * hash + this.totalTime;
-        hash = 79 * hash + Objects.hashCode(this.userProfile);
-        hash = 79 * hash + this.milestone;
-        hash = 79 * hash + this.health;
-        //hash = 79 * hash + this.inventory;
-        hash = 79 * hash + Objects.hashCode(this.optionSettings);
+        hash = 59 * hash + this.totalTime;
+        hash = 59 * hash + this.milestone;
+        hash = 59 * hash + Objects.hashCode(this.health);
+        hash = 59 * hash + Objects.hashCode(this.optionSettings);
+        hash = 59 * hash + (this.started ? 1 : 0);
+        hash = 59 * hash + Objects.hashCode(this.saveName);
+        hash = 59 * hash + Objects.hashCode(this.map);
+        hash = 59 * hash + Objects.hashCode(this.inventory);
+        hash = 59 * hash + Objects.hashCode(this.character);
         return hash;
     }
-    
+
     @Override
     public String toString() {
-        return "Game{" + "totalTime=" + totalTime + ", userProfile=" + userProfile + ", milestone=" + milestone + ", health=" + health + ", inventory=" + inventory + ", optionSettings=" + optionSettings + '}';
+        return "Game{" + "totalTime=" + totalTime + ", milestone=" + milestone + ", health=" + health + ", optionSettings=" + optionSettings + ", started=" + started + ", saveName=" + saveName + ", map=" + map + ", inventory=" + inventory + ", character=" + character + '}';
     }
+    
 
     @Override
     public boolean equals(Object obj) {
@@ -136,20 +148,30 @@ public class Game implements Serializable
         if (this.milestone != other.milestone) {
             return false;
         }
-        if (this.health != other.health) {
-            return false;
-        }
-        if (this.inventory != other.inventory) {
+        if (this.started != other.started) {
             return false;
         }
         if (!Objects.equals(this.optionSettings, other.optionSettings)) {
             return false;
         }
-        if (!Objects.equals(this.userProfile, other.userProfile)) {
+        if (!Objects.equals(this.saveName, other.saveName)) {
+            return false;
+        }
+        if (!Objects.equals(this.health, other.health)) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
+        if (!Objects.equals(this.inventory, other.inventory)) {
+            return false;
+        }
+        if (this.character != other.character) {
             return false;
         }
         return true;
     }
- 
+    
+
 
 }

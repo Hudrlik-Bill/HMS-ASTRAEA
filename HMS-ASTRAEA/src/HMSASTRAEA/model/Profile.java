@@ -15,6 +15,8 @@ import java.util.Objects;
 public class Profile implements Serializable
 {
     private String name;
+    //If profile exists, what happens? If it doesn't exist, what happens?
+    private Game game;
 
     public Profile() {
     }
@@ -27,19 +29,27 @@ public class Profile implements Serializable
         this.name = name;
     }
 
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 67 * hash + Objects.hashCode(this.name);
+        hash = 67 * hash + Objects.hashCode(this.game);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Profile{" + "name=" + name + '}';
+        return "Profile{" + "name=" + name + ", game=" + game + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -56,8 +66,10 @@ public class Profile implements Serializable
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
+        if (!Objects.equals(this.game, other.game)) {
+            return false;
+        }
         return true;
     }
-    
-    
+
 }

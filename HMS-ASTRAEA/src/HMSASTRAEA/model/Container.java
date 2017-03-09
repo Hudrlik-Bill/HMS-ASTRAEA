@@ -21,7 +21,7 @@ public class Container implements Serializable
     
     private Inventory inventory;
     
-    private ArrayList<Item>itemList;
+    private ArrayList<ArrayList<String>> itemList = new ArrayList<>();
     
     public Container() {
     }
@@ -62,12 +62,12 @@ public class Container implements Serializable
         return inventory;
     }
 
-    public ArrayList<Item> getItemList() 
+    public ArrayList<ArrayList<String>> getItemList() 
     {
         return itemList;
     }
 
-    public void setItemList(ArrayList<Item> itemList) 
+    public void setItemList(ArrayList<ArrayList<String>> itemList) 
     {
         this.itemList = itemList;
     }

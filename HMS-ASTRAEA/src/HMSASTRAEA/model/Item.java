@@ -12,5 +12,6 @@ package HMSASTRAEA.model;
 class Item 
 {
     private int itemType;
-    private int itemWeight;
+    private double itemWeight;
+    private Container containerID;
 }

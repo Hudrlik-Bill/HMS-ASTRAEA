@@ -14,9 +14,13 @@ import java.util.Objects;
  */
 public class Location implements Serializable {
     private boolean visited;
-    private String resource;
+    private Inventory resource;
+    private Map map;
+    private Scene[] scene;
     
-    public Location() {
+    public Location() 
+    {
+        
     }
 
     public boolean isVisited() {
@@ -27,11 +31,11 @@ public class Location implements Serializable {
         this.visited = visited;
     }
 
-    public String getResource() {
+    public Inventory getResource() {
         return resource;
     }
 
-    public void setResource(String resource) {
+    public void setResource(Inventory resource) {
         this.resource = resource;
     }
 
