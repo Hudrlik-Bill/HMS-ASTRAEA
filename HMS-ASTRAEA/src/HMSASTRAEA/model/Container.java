@@ -7,6 +7,7 @@ package HMSASTRAEA.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -18,6 +19,7 @@ public class Container implements Serializable
     private int containerQuantity;
     private int containerWeight;
     private int containerID;
+    private String containerDescription;
     
     private Inventory inventory;
     
@@ -26,30 +28,30 @@ public class Container implements Serializable
     public Container() {
     }
 
-    public int getItemType() {
+    public int getContainerType() {
         return containerType;
     }
 
-    public void setItemType(int containerType) {
+    public void setContainerType(int containerType) {
         this.containerType = containerType;
     }
 
-    public int getItemQuantity() {
+    public int getContainerQuantity() {
         return containerQuantity;
     }
 
-    public void setItemQuantity(int containerQuantity) {
+    public void setContainerQuantity(int containerQuantity) {
         this.containerQuantity = containerQuantity;
     }
 
-    public int getItemWeight() {
+    public int getContainerWeight() {
         return containerWeight;
     }
 
-    public void setItemWeight(int containerWeight) {
+    public void setContainerWeight(int containerWeight) {
         this.containerWeight = containerWeight;
     }
-    
+
     public int getContainerID() {
         return containerID;
     }
@@ -58,28 +60,46 @@ public class Container implements Serializable
         this.containerID = containerID;
     }
 
+    public String getContainerDescription() {
+        return containerDescription;
+    }
+
+    public void setContainerDescription(String containerDescription) {
+        this.containerDescription = containerDescription;
+    }
+
     public Inventory getInventory() {
         return inventory;
     }
 
-    public ArrayList<ArrayList<String>> getItemList() 
-    {
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
+    public ArrayList<ArrayList<String>> getItemList() {
         return itemList;
     }
 
-    public void setItemList(ArrayList<ArrayList<String>> itemList) 
-    {
+    public void setItemList(ArrayList<ArrayList<String>> itemList) {
         this.itemList = itemList;
     }
-    
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + this.containerType;
-        hash = 53 * hash + this.containerQuantity;
-        hash = 53 * hash + this.containerWeight;
-        hash = 53 * hash + this.containerID;
+        int hash = 3;
+        hash = 59 * hash + this.containerType;
+        hash = 59 * hash + this.containerQuantity;
+        hash = 59 * hash + this.containerWeight;
+        hash = 59 * hash + this.containerID;
+        hash = 59 * hash + Objects.hashCode(this.containerDescription);
+        hash = 59 * hash + Objects.hashCode(this.inventory);
+        hash = 59 * hash + Objects.hashCode(this.itemList);
         return hash;
+    }
+
+    @Override
+    public String toString() {
+        return "Container{" + "containerType=" + containerType + ", containerQuantity=" + containerQuantity + ", containerWeight=" + containerWeight + ", containerID=" + containerID + ", containerDescription=" + containerDescription + ", inventory=" + inventory + ", itemList=" + itemList + '}';
     }
 
     @Override
@@ -106,12 +126,17 @@ public class Container implements Serializable
         if (this.containerID != other.containerID) {
             return false;
         }
+        if (!Objects.equals(this.containerDescription, other.containerDescription)) {
+            return false;
+        }
+        if (!Objects.equals(this.inventory, other.inventory)) {
+            return false;
+        }
+        if (!Objects.equals(this.itemList, other.itemList)) {
+            return false;
+        }
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Inventory{" + "containerType=" + containerType + ", containerQuantity=" + containerQuantity + ", containerWeight=" + containerWeight + ", containerID=" + containerID + '}';
-    }
-
+  
 }

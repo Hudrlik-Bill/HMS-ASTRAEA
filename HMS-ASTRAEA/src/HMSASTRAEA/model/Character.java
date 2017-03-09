@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package HMSASTRAEA.model;
 
 import java.awt.Point;
@@ -15,6 +10,9 @@ import java.util.Objects;
  */
 public enum Character implements Serializable
 {
+    /*
+    **We can change the names, no problem. When we first did this I just went with a few to get through the assignment.
+    */
     Gidgidoni("Is a middle-aged /(40s or 50s/) gentleman with very good carpenter skills."),
     Teancum("Is in his 30s and worked as a blacksmith."),
     Esther("Is in her 20s or 30s and was a teacher and nurse.");
