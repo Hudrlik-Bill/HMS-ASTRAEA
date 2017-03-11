@@ -10,6 +10,7 @@ package HMSASTRAEA.model;
  * @author Teancum
  */
 
+import HMSASTRAEA.control.GameControl;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -41,6 +42,8 @@ public class Inventory implements Serializable
         this.defaultList = defaultList;
     }
 
+    
+    
     @Override
     public int hashCode() {
         int hash = 5;
@@ -73,5 +76,10 @@ public class Inventory implements Serializable
             return false;
         }
         return true;
+    }
+
+    public void add(Container mapInventory) 
+    {
+        GameControl.createInventoryList();
     }
 }

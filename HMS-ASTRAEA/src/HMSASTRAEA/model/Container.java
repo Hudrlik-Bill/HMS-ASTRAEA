@@ -21,28 +21,11 @@ public class Container implements Serializable
     private int containerID;
     private String containerDescription;
     private Inventory inventory;
-    private ArrayList<ArrayList<String>> itemList = new ArrayList<>();
-    
-        public enum gameItemList
-    {
-        lumber,     //0
-        water,      //1
-        hammer,     //2
-        chisel,     //3
-        saw,        //4
-        nail,       //5
-        food,       //6
-        clothes,    //7
-        crate,      //8
-        sail,       //9
-        lantern,    //10
-        fuelBlivot, //11
-        powderKeg,  //12
-        pistol,     //13
-        rifle;      //14
-    }
+    private ArrayList<Item> itemList = new ArrayList<>();
         
-    public Container() {
+    public Container() 
+    {
+        
     }
 
     public int getContainerType() {
@@ -93,11 +76,11 @@ public class Container implements Serializable
         this.inventory = inventory;
     }
 
-    public ArrayList<ArrayList<String>> getItemList() {
+    public ArrayList<Item> getItemList() {
         return itemList;
     }
 
-    public void setItemList(ArrayList<ArrayList<String>> itemList) {
+    public void setItemList(ArrayList<Item> itemList) {
         this.itemList = itemList;
     }
 

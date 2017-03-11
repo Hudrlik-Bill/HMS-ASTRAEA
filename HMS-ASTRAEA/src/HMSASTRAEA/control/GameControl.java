@@ -11,7 +11,7 @@ import HMSASTRAEA.model.Inventory;
 import HMSASTRAEA.model.Profile;
 import HMSASTRAEA.model.Health;
 import HMSASTRAEA.model.Map;
-import java.util.ArrayList;
+import HMSASTRAEA.model.Scene;
 
 /**
  *
@@ -72,7 +72,11 @@ public class GameControl
 
     public static Inventory createInventoryList() 
     {
-        ArrayList containerList = new ArrayList<>();
+
+    /**
+     *
+     */
+         Inventory containerList = new Inventory();
         
         /*
         **I think the right way to do this is to initialize a few default inventories. Setting the map inventory to 0
@@ -97,7 +101,6 @@ public class GameControl
         mapInventory.setContainerWeight(1000000000);
         mapInventory.setContainerID(0);
         mapInventory.setContainerDescription("Map has it all");
-        mapInventory.setItemList(containerList);
         containerList.add(mapInventory);
         
         Container crate01Inventory = new Container();
@@ -158,6 +161,19 @@ public class GameControl
 
     private static Map initializeMap() 
     {
+        Map map = new Map();            //Hopefully this made a new map...
+        Scene[] scenes = createScenes();//This makes a list of scenes to add to the map....maybe
+        GameControl.assignScenestoLocation(map, scenes);
+        return map;
+    }
+    
+    private static Scene[] createScenes() 
+    {
+        System.out.println("***Scene[] createScenes() called***");
+        return null;
+    }
+
+    private static void assignScenestoLocation(Map map, Scene[] scenes) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

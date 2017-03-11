@@ -14,8 +14,38 @@ import java.io.Serializable;
 public class Map implements Serializable {
     private int row;
     private int column;
+    private Location[][] locations;
     
-    public Map() {
+    public Map()
+            {
+                
+            }
+    
+    public Map(int row, int column) 
+    {
+        if (row < 1 || column < 1)
+        {
+            System.out.println("Invalid map selection.");
+            return;
+        }
+        
+        this.row = row;
+        this.column = column;
+        
+        this.locations = new Location[row][column];
+        
+        for (int rows = 0; rows < row; rows++)
+        {
+            for (int columns = 0; columns < column; columns++)
+            {
+                Location location = new Location();
+                location.setColumn(columns);
+                location.setRow(rows);
+                location.setVisited(false);
+                
+                locations[rows][columns] = location;
+            }
+        }
     }
 
     public int getRow() {
