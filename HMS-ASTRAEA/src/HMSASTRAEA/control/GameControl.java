@@ -29,69 +29,6 @@ public class GameControl
     private static Game savedGame7;
     private static Game savedGame8;
 
-    
-    private static Inventory createInventoryList() 
-    {
-        ArrayList<Container> containerList = new ArrayList<>();
-        
-        /*
-        **I think the right way to do this is to initialize a few default inventories. Setting the map inventory to 0
-        **may or may not be the best idea; but I went back to the matrix we made weeks ago and wanted to make sure that
-        **the first few ArrayList slots matched the numbers for the different containers. 
-        **0 = Map (not on the matrix)
-        **1 = Crate ; here, I've created a crate but we won't put anything in it. It's just a default null setting. 
-        **             why? Left field. I don't know. Third base!
-        **2 = Shed
-        **3 = Cart
-        **4 = Self (Teancum)
-        **5 = Gidgidoni
-        **6 = Esther
-        **Additional containers will likely be crates, as there can only be 1 of each of the other container types. 
-        **Even though most of the containers do not yet exist, we need to have a spot for them in the game so that
-        **when they do exist there is somewhere to put them and the stuff in them.
-        */
-        
-        Container mapInventory = new Container();
-        mapInventory.setContainerDescription("Map has it all");
-        containerList.add(mapInventory);
-        
-        Container crate01Inventory = new Container();
-        crate01Inventory.setContainerDescription("Initialize crate list at 1");
-        containerList.add(crate01Inventory);
-        
-        Container shedInventory = new Container();
-        shedInventory.setContainerDescription("Initialize shed list at 2");
-        containerList.add(shedInventory);
-        
-        Container cartInventory = new Container();
-        cartInventory.setContainerDescription("Initialize cart list at 3");
-        containerList.add(cartInventory);
-        
-        Container teancumInventory = new Container();
-        teancumInventory.setContainerDescription("Whatever is on the character's person");
-        containerList.add(teancumInventory);
-        
-        Container gidgidoniInventory = new Container();
-        gidgidoniInventory.setContainerDescription("Whatever is on the character's person");
-        containerList.add(gidgidoniInventory);
-        
-        Container estherInventory = new Container();
-        estherInventory.setContainerDescription("Whatever is on the character's person");
-        containerList.add(estherInventory);
-        
-        return null;
-    }
-    
-    private static Health createHealthStatus() 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private static Map initializeMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
     public GameControl() {
     }
 
@@ -113,29 +50,117 @@ public class GameControl
     {
         System.out.println("\n*** createNewGame() called ***");
                 
-        Game newGame = new Game();
-        GameControl.setCurrentGame(newGame);
+        Game game = new Game();
+        GameControl.setCurrentGame(game);
         
         Game.setUserProfile(profile);
-        Inventory inventory = GameControl.createInventoryList();
-        newGame.setInventory(inventory);
         
-        newGame.setTotalTime(0);
-        //newGame.setMilestone(0); **for simplicity, consider removing from assignment
+        Inventory inventory = GameControl.createInventoryList();//create inventory here in game control
+        game.setInventory(inventory);                       //save the inventory into the new game
+        
+        game.setTotalTime(0);
         
         Health health = GameControl.createHealthStatus(); //The overallHealth variable in Health is a double
-        newGame.setHealth(health);                        //Everywhere else, it is a Health class
-        
-        newGame.setOptionSettings("default"); //We won't be doing anything with this; just stubs
-        newGame.setStarted(true); //Why did we have this? ...
+        game.setHealth(health);                        //Everywhere else, it is a Health class
         
         Map map = GameControl.initializeMap();
-        newGame.setMap(map);
+        game.setMap(map);
         
-        newGame.setCharacter(HMSASTRAEA.model.Character.Teancum);
-        setCurrentGame(newGame);
+        game.setCharacter(HMSASTRAEA.model.Character.Teancum);
+        setCurrentGame(game);
     }
 
+    public static Inventory createInventoryList() 
+    {
+        ArrayList containerList = new ArrayList<>();
+        
+        /*
+        **I think the right way to do this is to initialize a few default inventories. Setting the map inventory to 0
+        **may or may not be the best idea; but I went back to the matrix we made weeks ago and wanted to make sure that
+        **the first few ArrayList slots matched the numbers for the different containers. 
+        **0 = Map (not on the matrix)
+        **1 = Crate ; here, I've created a crate but we won't put anything in it. It's just a default null setting. 
+        **             why? Left field. I don't know. Third base!
+        **2 = Shed
+        **3 = Cart
+        **4 = Self (Teancum)
+        **5 = Gidgidoni
+        **6 = Esther
+        **Additional containers will likely be crates, as there can only be 1 of each of the other container types. 
+        **Even though most of the containers do not yet exist, we need to have a spot for them in the game so that
+        **when they do exist there is somewhere to put them and the stuff in them.
+        */
+        
+        Container mapInventory = new Container();
+        mapInventory.setContainerType(0);
+        mapInventory.setContainerQuantity(1);
+        mapInventory.setContainerWeight(1000000000);
+        mapInventory.setContainerID(0);
+        mapInventory.setContainerDescription("Map has it all");
+        mapInventory.setItemList(containerList);
+        containerList.add(mapInventory);
+        
+        Container crate01Inventory = new Container();
+        mapInventory.setContainerType(1);
+        mapInventory.setContainerQuantity(0);
+        mapInventory.setContainerWeight(0);
+        mapInventory.setContainerID(1);
+        crate01Inventory.setContainerDescription("Initialize crate list at 1");
+        containerList.add(crate01Inventory);
+        
+        Container shedInventory = new Container();
+        mapInventory.setContainerType(2);
+        mapInventory.setContainerQuantity(0);
+        mapInventory.setContainerWeight(0);
+        mapInventory.setContainerID(2);
+        shedInventory.setContainerDescription("Initialize shed list at 2");
+        containerList.add(shedInventory);
+        
+        Container cartInventory = new Container();
+        mapInventory.setContainerType(3);
+        mapInventory.setContainerQuantity(0);
+        mapInventory.setContainerWeight(0);
+        mapInventory.setContainerID(3);
+        cartInventory.setContainerDescription("Initialize cart list at 3");
+        containerList.add(cartInventory);
+        
+        Container teancumInventory = new Container();
+        mapInventory.setContainerType(4);
+        mapInventory.setContainerQuantity(1);
+        mapInventory.setContainerWeight(185);
+        mapInventory.setContainerID(4);
+        teancumInventory.setContainerDescription("Whatever is on the Teancum's person");
+        containerList.add(teancumInventory);
+        
+        Container gidgidoniInventory = new Container();
+        mapInventory.setContainerType(5);
+        mapInventory.setContainerQuantity(1);
+        mapInventory.setContainerWeight(165);
+        mapInventory.setContainerID(5);
+        gidgidoniInventory.setContainerDescription("Whatever is on Gidgidoni's person");
+        containerList.add(gidgidoniInventory);
+        
+        Container estherInventory = new Container();
+        mapInventory.setContainerType(6);
+        mapInventory.setContainerQuantity(1);
+        mapInventory.setContainerWeight(120);
+        mapInventory.setContainerID(6);
+        estherInventory.setContainerDescription("Whatever is on the Esther's person");
+        containerList.add(estherInventory);
+        
+        return containerList;
+    }
+    
+        private static Health createHealthStatus() 
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static Map initializeMap() 
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     public static Game getCurrentGame() {
         return currentGame;
     }
