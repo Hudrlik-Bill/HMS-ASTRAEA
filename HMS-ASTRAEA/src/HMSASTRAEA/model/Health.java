@@ -14,47 +14,74 @@ import java.util.Objects;
  */
 public class Health implements Serializable
 {
-    private double overallHealth;
-    private int hunger;
-    private int thirst;
-    private int fatigue;
+    private int[] overallHealth = new int[4];
+    /* overallHealth[0] : injury
+       overallHealth[1] : hunger
+       overallHealth[2] : thirst
+       overallHealth[3] : fatigue
+    if any type of health reaches 0, the character dies
+    Full health for all types is 100.
+    
+    */
+    
     private Game game;
 
     public Health() 
     {
     }
 
-    public double getOverallHealth() {
+    public void eat(int amount){//eating reduces hunger
+        overallHealth[1]+=amount;
+        if(overallHealth[1]>100) overallHealth[1]=100;
+    }
+    public void drink(int amount){//drinking reduces thirst
+        overallHealth[2]+=amount;
+        if(overallHealth[2]>100) overallHealth[2]=100;
+    }
+    public void passTime(){//when time passes, the character becomes more hungry and thirsty
+        overallHealth[1]-=5;
+        overallHealth[2]-=5;  
+    }
+    public void rest(){//resting reduces fatigue, but slightly increases hunger and thirst
+        overallHealth[1]-=5;
+        overallHealth[2]-=5;
+        overallHealth[3]+=20;
+        if(overallHealth[3]>100) overallHealth[3]=100;
+    }
+    public void injur(int amount){//injurs a character
+        overallHealth[0]-=amount;
+    }
+    /*Strength represents the general ability of a character to do actions based on health
+    It is the average of the different types of health, but cannot exceed the lowest health
+    type by more than 20.  This represents that all types of health are important, but 
+    often the performance of a character is simply limited by whatever the weakest point is.
+    */
+    public int getStrength(){
+        int strength = 0;
+        int minimum = 100;
+        for(int health : overallHealth){
+            strength+=health;
+            if(minimum>health) minimum=health;
+        }
+        strength = strength/4;
+        minimum+=20;
+        if(minimum<strength) strength = minimum;
+        return strength;
+    }
+    public boolean isAlive(){
+        for(int health : overallHealth){
+            if(health<1){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public int[] getOverallHealth() {
         return overallHealth;
     }
 
-    public void setOverallHealth(double overallHealth) {
-        this.overallHealth = overallHealth;
-    }
-
-    public int getHunger() {
-        return hunger;
-    }
-
-    public void setHunger(int hunger) {
-        this.hunger = hunger;
-    }
-
-    public int getThirst() {
-        return thirst;
-    }
-
-    public void setThirst(int thirst) {
-        this.thirst = thirst;
-    }
-
-    public int getFatigue() {
-        return fatigue;
-    }
-
-    public void setFatigue(int fatigue) {
-        this.fatigue = fatigue;
-    }
+    
 
     public Game getGame() {
         return game;
@@ -67,17 +94,17 @@ public class Health implements Serializable
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = (int) (53 * hash + this.overallHealth);
-        hash = 53 * hash + this.hunger;
-        hash = 53 * hash + this.thirst;
-        hash = 53 * hash + this.fatigue;
+        hash = (int) (53 * hash + this.overallHealth[0]);
+        hash = 53 * hash + this.overallHealth[1];
+        hash = 53 * hash + this.overallHealth[2];
+        hash = 53 * hash + this.overallHealth[3];
         hash = 53 * hash + Objects.hashCode(this.game);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Health{" + "overallHealth=" + overallHealth + ", hunger=" + hunger + ", thirst=" + thirst + ", fatigue=" + fatigue + ", game=" + game + '}';
+        return "Health{" + "Injury=" + overallHealth[0] + ", hunger=" + overallHealth[1] + ", thirst=" + overallHealth[2] + ", fatigue=" + overallHealth[3] + ", game=" + game + '}';
     }
 
     @Override
@@ -93,15 +120,6 @@ public class Health implements Serializable
         }
         final Health other = (Health) obj;
         if (this.overallHealth != other.overallHealth) {
-            return false;
-        }
-        if (this.hunger != other.hunger) {
-            return false;
-        }
-        if (this.thirst != other.thirst) {
-            return false;
-        }
-        if (this.fatigue != other.fatigue) {
             return false;
         }
         if (!Objects.equals(this.game, other.game)) {

@@ -6,7 +6,6 @@
 package HMSASTRAEA.view;
 
 import HMSASTRAEA.control.GameControl;
-import HMSASTRAEA.model.Game;
 import java.util.Scanner;
 
 /**
@@ -38,7 +37,7 @@ public class SaveMenuView extends View
         gameMenu.displayMenu();
         return false;
     }
-    int choice = 0;
+    int choice;
     boolean badFormat = false;
     try {
         choice = Integer.parseInt(userChoice);

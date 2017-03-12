@@ -6,6 +6,8 @@
 package HMSASTRAEA.view;
 
 import java.util.Scanner;
+import HMSASTRAEA.control.GameControl;
+import HMSASTRAEA.model.Health;
 
 /**
  *
@@ -56,7 +58,15 @@ public class GameMenuView extends View
     }
 
     private void displayHealth() {
-        System.out.println("\n*** displayHealth() called ***");
+        
+        Health currentHealth = GameControl.getCurrentGame().getHealth();
+        
+        System.out.println("\n Health Report"
+                + "\nInjury:  "+ currentHealth.getOverallHealth()[0]
+                + "\nHunger:  "+ currentHealth.getOverallHealth()[1]
+                + "\nThirst:  "+ currentHealth.getOverallHealth()[2]
+                + "\nFatigue: "+ currentHealth.getOverallHealth()[3]
+                + "\nStrength:"+ currentHealth.getStrength());
     }
 
     private void displayMap() {
