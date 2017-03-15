@@ -47,4 +47,30 @@ public abstract class View implements ViewInterface
             userChoice = userChoice.toUpperCase();
             return userChoice;
     }
+    public void getDoubleNumber(){
+        Double number = null;
+        
+        while (number == null) {
+            String value = this.getInput();
+            value = value.trim().toUpperCase();
+            
+            if (value.equals("Q"))
+                break;
+            
+            //parse and convert number from text to a double
+            try {
+                number = Double.parseDouble(value);
+                
+            }catch (NumberFormatException nf){
+                System.out.println("\nYou must enter a valid number. "
+                                    +"Try again or enter Q to quit.");
+            }
+            
+        }
+       
+    }
+
+    private String getInput() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

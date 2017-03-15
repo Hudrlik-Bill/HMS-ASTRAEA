@@ -5,6 +5,11 @@
  */
 package HMSASTRAEA.view;
 
+import HMSASTRAEA.control.MapControl;
+import HMSASTRAEA.model.Player;
+import HMSASTREA.exceptions.MapControlException;
+import java.awt.Point;
+
 /**
  *
  * @author famil
@@ -62,11 +67,18 @@ public class ActionView extends View
     }
 
     private void buildItem() {
-        System.out.println("*** buildItem() called ***");
+        
+              
     }
 
-    private void moveTravel() {
-        System.out.println("*** moveTravel() called ***");
+    private void moveTravel(Point coordinates) {
+       Player player = null;
+        //move actor to specified location
+        try{
+            MapControl.movePlayerToLocation(player, coordinates);
+        }catch (MapControlException me){
+            System.out.println(me.getMessage());
+        }
     }
 
     private void collectObject() {
@@ -92,4 +104,9 @@ public class ActionView extends View
     private void fish() {
         System.out.println("*** fish() called ***");
     }
+
+    private void moveTravel() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }
