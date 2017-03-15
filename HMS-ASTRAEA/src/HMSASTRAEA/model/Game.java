@@ -24,7 +24,7 @@ public class Game implements Serializable
     
     private Map map;
     private Inventory inventory;
-    private Character character;
+    private Player character;
 
     public Game() {
     }
@@ -101,11 +101,11 @@ public class Game implements Serializable
         this.inventory = inventory;
     }
 
-    public Character getCharacter() {
+    public Player getCharacter() {
         return character;
     }
 
-    public void setCharacter(Character character) {
+    public void setCharacter(Player character) {
         this.character = character;
     }
 

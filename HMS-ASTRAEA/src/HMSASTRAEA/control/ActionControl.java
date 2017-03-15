@@ -5,14 +5,28 @@
  */
 package HMSASTRAEA.control;
 
+import HMSASTRAEA.model.Player;
+import HMSASTREA.exceptions.MapControlException;
+import java.awt.Point;
+
 /**
  *
  * @author Teancum
  */
 public class ActionControl
 {
+    public boolean moveTravel(String choice){
+        Player player = null;
+        // move the player to specified location
+                try{
+            Point coordinates = player.getCoordinates();
+            MapControl.movePlayerToLocation(player, coordinates);
+        }catch (MapControlException me){
+            System.out.println(me.getMessage());
+        }
+        return false;
+    }
     public double buildContainer(int container, double width, double length, double height)
-            
     {
         if (1 > container || container > 3)
             {return 0;}

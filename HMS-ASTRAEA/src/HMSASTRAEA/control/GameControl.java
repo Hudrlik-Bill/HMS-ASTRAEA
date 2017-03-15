@@ -66,7 +66,7 @@ public class GameControl
         Map map = GameControl.initializeMap();
         game.setMap(map);
         
-        game.setCharacter(HMSASTRAEA.model.Character.Teancum);
+        game.setCharacter(HMSASTRAEA.model.Player.Teancum);
         setCurrentGame(game);
     }
 

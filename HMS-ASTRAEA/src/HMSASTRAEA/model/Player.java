@@ -8,7 +8,7 @@ import java.util.Objects;
  *
  * @author Teancum
  */
-public enum Character implements Serializable
+public enum Player implements Serializable
 {
     /*
     **We can change the names, no problem. When we first did this I just went with a few to get through the assignment.
@@ -23,7 +23,7 @@ public enum Character implements Serializable
     //private Health health;
     private Location location;
 
-    Character(String description) 
+    Player(String description) 
     {
          this.description = description;
          coordinates = new Point(1, 1);
