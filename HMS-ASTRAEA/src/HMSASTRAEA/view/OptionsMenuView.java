@@ -18,7 +18,8 @@ public class OptionsMenuView extends View
                 + "\nM - Music"
                 + "\nE - Effects"
                 + "\nC - Contrast"
-                + "\nD - Display");
+                + "\nD - Display"
+                + "\nQ - Quit");
     }
     
     @Override

@@ -25,6 +25,11 @@ public class Inventory implements Serializable
     {
         
     }
+    
+    public void add(Container mapInventory) 
+    {
+        
+    }
 
     public ArrayList<Container> getContainerList() {
         return containerList;
@@ -76,10 +81,5 @@ public class Inventory implements Serializable
             return false;
         }
         return true;
-    }
-
-    public void add(Container mapInventory) 
-    {
-        GameControl.createInventoryList();
     }
 }

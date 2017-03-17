@@ -48,7 +48,7 @@ public class Health implements Serializable
         overallHealth[3]+=20;
         if(overallHealth[3]>100) overallHealth[3]=100;
     }
-    public void injur(int amount){//injurs a character
+    public void injure(int amount){//injures a character
         overallHealth[0]-=amount;
     }
     /*Strength represents the general ability of a character to do actions based on health
@@ -81,7 +81,16 @@ public class Health implements Serializable
         return overallHealth;
     }
 
-    
+    /**
+     *
+     * @param overallhealth
+     * @return 
+     */
+    public static int[] setOverallHealth(int overallhealth)
+    {
+        
+        return null;
+    }
 
     public Game getGame() {
         return game;

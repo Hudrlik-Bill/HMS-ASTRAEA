@@ -5,6 +5,7 @@
  */
 package HMSASTRAEA.model;
 
+import HMSASTRAEA.control.GameControl;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -25,6 +26,12 @@ public class Container implements Serializable
         
     public Container() 
     {
+        
+    }
+
+    public Container(Container mapInventory) 
+    {
+        
         
     }
 

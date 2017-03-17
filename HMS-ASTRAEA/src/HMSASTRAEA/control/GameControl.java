@@ -72,12 +72,6 @@ public class GameControl
 
     public static Inventory createInventoryList() 
     {
-
-    /**
-     *
-     */
-         Inventory containerList = new Inventory();
-        
         /*
         **I think the right way to do this is to initialize a few default inventories. Setting the map inventory to 0
         **may or may not be the best idea; but I went back to the matrix we made weeks ago and wanted to make sure that
@@ -94,6 +88,10 @@ public class GameControl
         **Even though most of the containers do not yet exist, we need to have a spot for them in the game so that
         **when they do exist there is somewhere to put them and the stuff in them.
         */
+    /**
+     *
+     */
+        Inventory containerList = new Inventory();        
         
         Container mapInventory = new Container();
         mapInventory.setContainerType(0);
@@ -101,7 +99,7 @@ public class GameControl
         mapInventory.setContainerWeight(1000000000);
         mapInventory.setContainerID(0);
         mapInventory.setContainerDescription("Map has it all");
-        containerList.add(mapInventory);
+        containerList.add(new Container(mapInventory));
         
         Container crate01Inventory = new Container();
         mapInventory.setContainerType(1);
@@ -109,7 +107,7 @@ public class GameControl
         mapInventory.setContainerWeight(0);
         mapInventory.setContainerID(1);
         crate01Inventory.setContainerDescription("Initialize crate list at 1");
-        containerList.add(crate01Inventory);
+        containerList.add(new Container(crate01Inventory));
         
         Container shedInventory = new Container();
         mapInventory.setContainerType(2);
@@ -117,7 +115,7 @@ public class GameControl
         mapInventory.setContainerWeight(0);
         mapInventory.setContainerID(2);
         shedInventory.setContainerDescription("Initialize shed list at 2");
-        containerList.add(shedInventory);
+        containerList.add(new Container(shedInventory));
         
         Container cartInventory = new Container();
         mapInventory.setContainerType(3);
@@ -125,7 +123,7 @@ public class GameControl
         mapInventory.setContainerWeight(0);
         mapInventory.setContainerID(3);
         cartInventory.setContainerDescription("Initialize cart list at 3");
-        containerList.add(cartInventory);
+        containerList.add(new Container(cartInventory));
         
         Container teancumInventory = new Container();
         mapInventory.setContainerType(4);
@@ -133,7 +131,7 @@ public class GameControl
         mapInventory.setContainerWeight(185);
         mapInventory.setContainerID(4);
         teancumInventory.setContainerDescription("Whatever is on the Teancum's person");
-        containerList.add(teancumInventory);
+        containerList.add(new Container(teancumInventory));
         
         Container gidgidoniInventory = new Container();
         mapInventory.setContainerType(5);
@@ -141,7 +139,7 @@ public class GameControl
         mapInventory.setContainerWeight(165);
         mapInventory.setContainerID(5);
         gidgidoniInventory.setContainerDescription("Whatever is on Gidgidoni's person");
-        containerList.add(gidgidoniInventory);
+        containerList.add(new Container(gidgidoniInventory));
         
         Container estherInventory = new Container();
         mapInventory.setContainerType(6);
@@ -149,14 +147,17 @@ public class GameControl
         mapInventory.setContainerWeight(120);
         mapInventory.setContainerID(6);
         estherInventory.setContainerDescription("Whatever is on the Esther's person");
-        containerList.add(estherInventory);
+        containerList.add(new Container(estherInventory));
         
         return containerList;
     }
     
-        private static Health createHealthStatus() 
+        public static Health createHealthStatus() 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int[] initialHealth;
+        initialHealth = Health.setOverallHealth(50);
+        System.out.println("***Health status set at 50%***");
+        return null;
     }
 
     private static Map initializeMap() 
