@@ -174,8 +174,9 @@ public class GameControl
         return null;
     }
 
-    private static void assignScenestoLocation(Map map, Scene[] scenes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private static void assignScenestoLocation(Map map, Scene[] scenes) 
+    {
+        System.out.println("***assignScenestoLocation called***");
     }
     
     public static Game getCurrentGame() {

@@ -68,6 +68,7 @@ public class Health implements Serializable
         if(minimum<strength) strength = minimum;
         return strength;
     }
+    
     public boolean isAlive(){
         for(int health : overallHealth){
             if(health<1){
