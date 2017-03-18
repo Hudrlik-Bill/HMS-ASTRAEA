@@ -146,7 +146,7 @@ public class GameControl
         mapInventory.setContainerQuantity(1);
         mapInventory.setContainerWeight(120);
         mapInventory.setContainerID(6);
-        estherInventory.setContainerDescription("Whatever is on the Esther's person");
+        estherInventory.setContainerDescription("Whatever is on Esther's person");
         containerList.add(new Container(estherInventory));
         
         return containerList;
@@ -179,75 +179,93 @@ public class GameControl
         System.out.println("***assignScenestoLocation called***");
     }
     
-    public static Game getCurrentGame() {
+    public static Game getCurrentGame() 
+    {
         return currentGame;
     }
 
-    public static void setCurrentGame(Game currentGame) {
+    public static void setCurrentGame(Game currentGame) 
+    {
         GameControl.currentGame = currentGame;
     }
 
-    public static Game getSavedGame1() {
+    public static Game getSavedGame1() 
+    {
         return savedGame1;
     }
 
-    public static void setSavedGame1(Game savedGame1) {
+    public static void setSavedGame1(Game savedGame1) 
+    {
         GameControl.savedGame1 = savedGame1;
     }
 
-    public static Game getSavedGame2() {
+    public static Game getSavedGame2() 
+    {
         return savedGame2;
     }
 
-    public static void setSavedGame2(Game savedGame2) {
+    public static void setSavedGame2(Game savedGame2) 
+    {
         GameControl.savedGame2 = savedGame2;
     }
 
-    public static Game getSavedGame3() {
+    public static Game getSavedGame3() 
+    {
         return savedGame3;
     }
 
-    public static void setSavedGame3(Game savedGame3) {
+    public static void setSavedGame3(Game savedGame3) 
+    {
         GameControl.savedGame3 = savedGame3;
     }
 
-    public static Game getSavedGame4() {
+    public static Game getSavedGame4() 
+    {
         return savedGame4;
     }
 
-    public static void setSavedGame4(Game savedGame4) {
+    public static void setSavedGame4(Game savedGame4) 
+    {
         GameControl.savedGame4 = savedGame4;
     }
 
-    public static Game getSavedGame5() {
+    public static Game getSavedGame5() 
+    {
         return savedGame5;
     }
 
-    public static void setSavedGame5(Game savedGame5) {
+    public static void setSavedGame5(Game savedGame5) 
+    {
         GameControl.savedGame5 = savedGame5;
     }
 
-    public static Game getSavedGame6() {
+    public static Game getSavedGame6() 
+    {
         return savedGame6;
     }
 
-    public static void setSavedGame6(Game savedGame6) {
+    public static void setSavedGame6(Game savedGame6) 
+    {
         GameControl.savedGame6 = savedGame6;
     }
 
-    public static Game getSavedGame7() {
+    public static Game getSavedGame7() 
+    {
         return savedGame7;
     }
 
-    public static void setSavedGame7(Game savedGame7) {
+    public static void setSavedGame7(Game savedGame7) 
+    {
         GameControl.savedGame7 = savedGame7;
     }
 
-    public static Game getSavedGame8() {
+    public static Game getSavedGame8() 
+    {
         return savedGame8;
     }
 
-    public static void setSavedGame8(Game savedGame8) {
+    public static void setSavedGame8(Game savedGame8) 
+    {
         GameControl.savedGame8 = savedGame8;
     }
     

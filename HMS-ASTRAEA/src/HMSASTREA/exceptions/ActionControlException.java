@@ -9,6 +9,32 @@ package HMSASTREA.exceptions;
  *
  * @author Marina
  */
-public class ActionControlException {
+public class ActionControlException extends Exception
+{
+
+    public ActionControlException() 
+    {
+        
+    }
+
+    public ActionControlException(String string) 
+    {
+        super(string);
+    }
+
+    public ActionControlException(String string, Throwable thrwbl) 
+    {
+        super(string, thrwbl);
+    }
+
+    public ActionControlException(Throwable thrwbl) 
+    {
+        super(thrwbl);
+    }
+
+    public ActionControlException(String string, Throwable thrwbl, boolean bln, boolean bln1) 
+    {
+        super(string, thrwbl, bln, bln1);
+    }
     
 }

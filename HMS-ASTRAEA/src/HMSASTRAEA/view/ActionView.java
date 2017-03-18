@@ -9,6 +9,7 @@ import HMSASTRAEA.control.MapControl;
 import HMSASTRAEA.model.Player;
 import HMSASTREA.exceptions.MapControlException;
 import java.awt.Point;
+import java.util.Scanner;
 
 /**
  *
@@ -20,7 +21,7 @@ public class ActionView extends View
   {
     super ( "\nACTION MENU"
            + "\nS - Search"
-           + "\nB - Build Item"
+           + "\nB - Build/manufacture Item"
            + "\nM - Move/Travel"
            + "\nC - Collect Object"
            + "\nZ - Sleep"
@@ -66,9 +67,39 @@ public class ActionView extends View
         System.out.println("*** search() called ***");
     }
 
-    private void buildItem() {
+    private void buildItem() 
+    {        
+        System.out.println("\nWhich item would you like to build?"
+                         + "\nT - Tool"
+                         + "\nC - Container"
+                         + "\nD - Device"
+                         + "\nW - Weapon"
+                         + "\nG - Garment (clothes)"
+                         + "\nQ - Quit this menu");
         
-              
+        Scanner userInput = new Scanner(System.in);
+        String userBuildChoice = userInput.nextLine();
+        userBuildChoice = userBuildChoice.trim();
+        userBuildChoice = userBuildChoice.toUpperCase();
+
+        switch (userBuildChoice)
+      { 
+            case "T": this.makeTool();
+            break;
+            case "C": this.makeContainer();
+            break;
+            case "D": this.makeDevice();
+            break;
+            case "W": this.makeWeapon();
+            break;
+            case "G": this.makeGarment();
+            break;
+            case "Q": return;
+            default:
+            {
+                System.out.println("Invalid selection. Please enter 'T', 'C', 'D', 'W', 'G' or 'Q'.");
+            }
+      }
     }
 
     private void moveTravel(Point coordinates) {
@@ -106,7 +137,26 @@ public class ActionView extends View
     }
 
     private void moveTravel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("******");
     }
-    
+
+    private void makeTool() {
+        System.out.println("***makeTool() called***");
+    }
+
+    private void makeContainer() {
+        System.out.println("***makeContainer() called***");
+    }
+
+    private void makeDevice() {
+        System.out.println("***makeDevice() called***");
+    }
+
+    private void makeWeapon() {
+        System.out.println("***makeWeapon() called***");
+    }
+
+    private void makeGarment() {
+        System.out.println("***makeGarment() called***");
+    }
 }

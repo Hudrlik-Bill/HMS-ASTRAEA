@@ -5,9 +5,9 @@
  */
 package HMSASTRAEA.control;
 
-import HMSASTRAEA.model.Player;
-import HMSASTREA.exceptions.MapControlException;
-import java.awt.Point;
+import java.util.Scanner;
+
+
 
 /**
  *
@@ -15,7 +15,15 @@ import java.awt.Point;
  */
 public class ActionControl
 {
-    
+
+    public static void buildTool() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public int buildItem()
+    {
+        
+        return 3;
+    }
     public double buildContainer(int container, double width, double length, double height)
     {
         if (1 > container || container > 3)
