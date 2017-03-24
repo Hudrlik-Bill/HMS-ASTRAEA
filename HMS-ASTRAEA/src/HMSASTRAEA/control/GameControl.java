@@ -12,6 +12,11 @@ import HMSASTRAEA.model.Profile;
 import HMSASTRAEA.model.Health;
 import HMSASTRAEA.model.Map;
 import HMSASTRAEA.model.Scene;
+import HMSASTREA.exceptions.GameControlException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -267,6 +272,27 @@ public class GameControl
     public static void setSavedGame8(Game savedGame8) 
     {
         GameControl.savedGame8 = savedGame8;
+    }
+    public static void saveGame(String filePath) throws GameControlException{
+        
+        try(FileOutputStream fops = new FileOutputStream(filePath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(currentGame);
+        }
+        catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+    }
+    public static void getSavedGame(String filePath)
+                            throws GameControlException {
+        Game game = null;
+        try(FileInputStream fips = new FileInputStream(filePath)){
+            ObjectInputStream input = new ObjectInputStream(fips);
+            game = (Game) input.readObject();
+        }catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+        setCurrentGame(game);
     }
     
 }

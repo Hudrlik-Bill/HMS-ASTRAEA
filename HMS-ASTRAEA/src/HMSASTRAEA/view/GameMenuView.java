@@ -73,6 +73,18 @@ public class GameMenuView extends View
         System.out.println("\n*** displayMap() called ***");
     }
     private void saveGame() {
+        System.out.println("\n\nEnter the file path for the file where the "
+                            +"game is to be saved");
+        Scanner userInput = new Scanner(System.in);
+        String filePath = userInput.nextLine();
+        filePath = filePath.trim();
+        filePath = filePath.toUpperCase();
+        try{
+            GameControl.saveGame(filePath);
+        }
+        catch(Exception e){
+            this.displayMenu();
+        }
         SaveMenuView saveMenu = new SaveMenuView();
         saveMenu.displayMenu();
         //System.out.println("\n*** saveGame() called ***");

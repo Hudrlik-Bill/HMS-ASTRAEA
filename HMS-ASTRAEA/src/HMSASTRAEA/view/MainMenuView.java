@@ -7,6 +7,7 @@ package HMSASTRAEA.view;
 
 import HMSASTRAEA.control.GameControl;
 import HMSASTRAEA.model.Game;
+import java.util.Scanner;
 
 
 /**
@@ -58,6 +59,22 @@ public class MainMenuView extends View
     private void resumeSavedGame() 
     {
         System.out.println("*** resumeSavedGame() called ***");
+        System.out.println("\n\nEnter the file path for the file where the "
+                            +"game was saved.");
+        Scanner userInput = new Scanner(System.in);
+        String filePath = userInput.nextLine();
+        filePath = filePath.trim();
+        filePath = filePath.toUpperCase();
+        try{
+            GameControl.getSavedGame(filePath);
+            
+        }
+        catch(Exception e){
+            MainMenuView gameMenuObject = new MainMenuView();
+            gameMenuObject.displayMenu();
+        }
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
     }
 
     private void displayOptionsMenu() 
