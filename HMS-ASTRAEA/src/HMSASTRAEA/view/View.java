@@ -5,6 +5,9 @@
  */
 package HMSASTRAEA.view;
 
+import HMSASTRAEA_MAIN.HMS_ASTRAEA_MAIN;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -14,6 +17,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface
 {
     protected String displayMenu;
+    
+    protected final BufferedReader keyboard = HMS_ASTRAEA_MAIN.getInFile();
+    protected final PrintWriter console = HMS_ASTRAEA_MAIN.getOutFile();
     
     public View(String message)
     {
