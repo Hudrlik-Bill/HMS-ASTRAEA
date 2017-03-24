@@ -7,6 +7,7 @@ package HMSASTRAEA.view;
 
 import HMSASTRAEA.control.GameControl;
 import HMSASTRAEA.model.Profile;
+import HMSASTREA.exceptions.GameControlException;
 
 import java.util.Scanner;
 
@@ -18,11 +19,12 @@ public class StartProgramView
 {
     private String promptMessage;
     
-    @SuppressWarnings("OverridableMethodCallInConstructor")
-    public StartProgramView() 
+    //@SuppressWarnings("OverridableMethodCallInConstructor")
+    public StartProgramView() throws GameControlException 
     {
         this.promptMessage = "\nPlease enter your name: ";
         this.displayBanner();
+        this.displayStartProgramView();
     }
     
     public void displayBanner()
@@ -40,16 +42,16 @@ public class StartProgramView
         );
     }
     
-    public void displayStartProgramView()
+    public void displayStartProgramView() throws GameControlException
     {
         
         boolean done = false;
             do
             {
                 String playerName = this.getPlayerName();
-                if (playerName.toUpperCase().equals("Q"))
+                if (playerName.toUpperCase().equals("Q")) {
                         return;
-                
+                }
                 done = this.doAction(playerName);
             }
             while (!done);
@@ -114,7 +116,7 @@ public class StartProgramView
     }
 
     public void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
