@@ -27,6 +27,8 @@ public class Container implements Serializable
     public Container() 
     {
         
+        
+        
     }
 
     public Container(Container mapInventory) 
