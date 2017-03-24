@@ -9,7 +9,10 @@ import HMSASTRAEA.control.MapControl;
 import HMSASTRAEA.model.Player;
 import HMSASTREA.exceptions.MapControlException;
 import java.awt.Point;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -77,10 +80,15 @@ public class ActionView extends View
                          + "\nG - Garment (clothes)"
                          + "\nQ - Quit this menu");
         
-        Scanner userInput = new Scanner(System.in);
-        String userBuildChoice = userInput.nextLine();
-        userBuildChoice = userBuildChoice.trim();
-        userBuildChoice = userBuildChoice.toUpperCase();
+        String userBuildChoice = null;
+      try {
+          userBuildChoice = this.keyboard.readLine();
+          userBuildChoice = userBuildChoice.trim();
+          userBuildChoice = userBuildChoice.toUpperCase();
+      } catch (IOException ex) {
+          Logger.getLogger(ActionView.class.getName()).log(Level.SEVERE, null, ex);
+      }
+        
 
         switch (userBuildChoice)
       { 

@@ -7,8 +7,11 @@ package HMSASTRAEA.view;
 
 import HMSASTRAEA_MAIN.HMS_ASTRAEA_MAIN;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -47,10 +50,15 @@ public abstract class View implements ViewInterface
     public String getUserChoice()
     {
         System.out.println("\nPlease enter your choice: ");
-            Scanner userInput = new Scanner(System.in);
-            String userChoice = userInput.nextLine();
+            String userChoice = null;
+        try {
+            userChoice = this.keyboard.readLine();
             userChoice = userChoice.trim();
             userChoice = userChoice.toUpperCase();
+        } catch (IOException ex) {
+            Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
             return userChoice;
     }
     public void getDoubleNumber(){

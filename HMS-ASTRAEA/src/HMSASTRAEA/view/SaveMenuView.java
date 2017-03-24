@@ -6,7 +6,10 @@
 package HMSASTRAEA.view;
 
 import HMSASTRAEA.control.GameControl;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -48,10 +51,15 @@ public class SaveMenuView extends View
     }
     if(choice>0 && choice <9){
         System.out.println("\nPlease enter the name of your saved Game: ");
-        Scanner userInput = new Scanner(System.in);
-        String newSaveName = userInput.nextLine();
-        newSaveName = newSaveName.trim();
-        newSaveName = newSaveName.toUpperCase();
+        String newSaveName = null;
+        try {
+            newSaveName = this.keyboard.readLine();
+            newSaveName = newSaveName.trim();
+            newSaveName = newSaveName.toUpperCase();
+        } catch (IOException ex) {
+            Logger.getLogger(SaveMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         GameControl.getCurrentGame().setSaveName(newSaveName);
         
         switch(choice){
