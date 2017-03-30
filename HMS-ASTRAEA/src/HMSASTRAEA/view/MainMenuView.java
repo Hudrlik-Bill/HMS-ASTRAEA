@@ -21,6 +21,7 @@ public class MainMenuView extends View
         super ("\nMAIN MENU"
                       + "\nN - NEW GAME"
                       + "\nR - RESUME GAME"
+                      + "\nS - SAVE GAME"
                       + "\nO - OPTIONS"
                       + "\nH - HELP"
                       + "\nQ - QUIT");
@@ -35,13 +36,16 @@ public class MainMenuView extends View
                         break;
                     case "R": this.resumeSavedGame();
                         break;
+                    case "S": this.SavedGame();
+                        break;    
                     case "O": this.displayOptionsMenu();
                         break;
                     case "H": this.displayHelpMenu();
                         break;
                     default: 
                         {   
-                            System.out.println("Invalid selection. Please enter 'N', 'R', 'O', 'H', or 'Q'");
+                            ErrorView.display(this.getClass().getName(),
+                                    "Invalid selection. Please enter 'N', 'R', 'O', 'H', or 'Q'");
                         }
                 }
         return false;
@@ -49,7 +53,7 @@ public class MainMenuView extends View
 
     private void startNewGame() 
     {
-        System.out.println("*** startNewGame() called***");
+        this.console.println("*** startNewGame() called***");
         GameControl.createNewGame(Game.getUserProfile());
         
         GameMenuView gameMenu = new GameMenuView();
@@ -58,8 +62,8 @@ public class MainMenuView extends View
 
     private void resumeSavedGame() 
     {
-        System.out.println("*** resumeSavedGame() called ***");
-        System.out.println("\n\nEnter the file path for the file where the "
+        this.console.println("*** resumeSavedGame() called ***");
+        this.console.println("\n\nEnter the file path for the file where the "
                             +"game was saved.");
         Scanner userInput = new Scanner(System.in);
         String filePath = userInput.nextLine();
@@ -79,7 +83,7 @@ public class MainMenuView extends View
 
     private void displayOptionsMenu() 
     {
-        System.out.println("*** displayOptionsMenu() called ***");
+        this.console.println("*** displayOptionsMenu() called ***");
         
         OptionsMenuView optionsMenu = new OptionsMenuView();
         optionsMenu.displayMenu();
@@ -87,10 +91,18 @@ public class MainMenuView extends View
 
     private void displayHelpMenu() 
     {
-        System.out.println("*** displayHelpMenu() called ***");
+        this.console.println("*** displayHelpMenu() called ***");
         
         HelpMenuView helpMenu = new HelpMenuView(); 
         helpMenu.displayMenu();
+    }
+
+    private void SavedGame() {
+        this.console.println("*** saveGame() called***");
+        // prompt for and get the name of the file to save the game in
+        this.console.println("\n\nEnter the file path for the file where "
+                           + "the game is to be saved.");
+        String filePath = this.getInput();
     }
 
 }

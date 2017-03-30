@@ -50,7 +50,7 @@ public class SaveMenuView extends View
         badFormat = true;
     }
     if(choice>0 && choice <9){
-        System.out.println("\nPlease enter the name of your saved Game: ");
+        this.console.println("\nPlease enter the name of your saved Game: ");
         String newSaveName = null;
         try {
             newSaveName = this.keyboard.readLine();
@@ -89,7 +89,8 @@ public class SaveMenuView extends View
         
     
     else{
-        System.out.println("Invalid selection. Please enter 1-8 or 'R'");
+        ErrorView.display(this.getClass().getName(),
+                "Invalid selection. Please enter 1-8 or 'R'");
     }
         
         return false;

@@ -35,7 +35,8 @@ public class HelpMenuView extends View
                         break;
                     default: 
                     {
-                        System.out.println("Invalid selection. Please enter 'G', 'C', 'P', or 'Q'");
+                        ErrorView.display(this.getClass().getName(),
+                                "Invalid selection. Please enter 'G', 'C', 'P', or 'Q'");
                     }
                 }
         return false;
@@ -43,7 +44,7 @@ public class HelpMenuView extends View
 
     private void displayGamePlay() 
     {
-        System.out.println("\n*** displayGamePlay() called ***");
+        this.console.println("\n*** displayGamePlay() called ***");
             /* When we get to this point, we can put instructions similar to what I have below as game instructions.
             **Purpose of Play: The purpose of this game is to survive. You must determine what it takes to stay alive and then do it!
             **Storyline: The HMS ASTRAEA is a ship crossing the ocean into a new world that has recently been discovered. 
@@ -61,7 +62,7 @@ public class HelpMenuView extends View
 
     private void displayCommandKeys() 
     {
-        System.out.println("\n*** displaycommandKeys() called ***");
+        this.console.println("\n*** displaycommandKeys() called ***");
     }
     /* This will just list the different menus with their associated option keys
     ** We could display every menu, or just choose particular menus to display. Perhaps just game action menus will be sufficient.
@@ -69,7 +70,7 @@ public class HelpMenuView extends View
 
     private void displayProduct_FAQ() 
     {
-        System.out.println("\n*** displayProduct_FAQ() called ***");
+        this.console.println("\n*** displayProduct_FAQ() called ***");
     }
     /*
     ** H.E.R. Enterprises (Hudrlik, Enkey, Russell Enterprises) (c) All rights reserved

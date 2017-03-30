@@ -39,7 +39,8 @@ public class OptionsMenuView extends View
                         break;
                     default: 
                         {   
-                            System.out.println("Invalid selection. Please enter 'V', 'M', 'E', 'C', 'D', or 'Q'");
+                            ErrorView.display(this.getClass().getName(),
+                                    "Invalid selection. Please enter 'V', 'M', 'E', 'C', 'D', or 'Q'");
                         }
                 }
         return false;
@@ -47,26 +48,26 @@ public class OptionsMenuView extends View
 
     private void changeMainVolume() 
     {
-        System.out.println("***changeMainVolume() called***");
+        this.console.println("***changeMainVolume() called***");
     }
 
     private void changeMusicVolume() 
     {
-        System.out.println("***changeMusicVolume() called***");
+        this.console.println("***changeMusicVolume() called***");
     }
 
     private void changeEffectsVolume() 
     {
-        System.out.println("***changeEffectsVolume() called***");
+        this.console.println("***changeEffectsVolume() called***");
     }
 
     private void changeContrast() 
     {
-        System.out.println("***changeContrast() called***");
+        this.console.println("***changeContrast() called***");
     }
 
     private void changeDisplay() 
     {
-       System.out.println("***changeDisplay() called***");
+       this.console.println("***changeDisplay() called***");
     }
 }

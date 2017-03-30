@@ -60,19 +60,20 @@ public class ActionView extends View
                         break;
                     default: 
                         {   
-                            System.out.println("Invalid selection. Please enter 'S', 'B', 'M', 'C', 'Z', 'D', 'H', 'F' or 'Q'");
+                            ErrorView.display(this.getClass().getName(),
+                                    "Invalid selection. Please enter 'S', 'B', 'M', 'C', 'Z', 'D', 'H', 'F' or 'Q'");
                         }
                 }
         return false; 
   }
 
     private void search() {
-        System.out.println("*** search() called ***");
+        this.console.println("*** search() called ***");
     }
 
     private void buildItem() 
     {        
-        System.out.println("\nWhich item would you like to build?"
+        this.console.println("\nWhich item would you like to build?"
                          + "\nT - Tool"
                          + "\nC - Container"
                          + "\nD - Device"
@@ -105,7 +106,8 @@ public class ActionView extends View
             case "Q": return;
             default:
             {
-                System.out.println("Invalid selection. Please enter 'T', 'C', 'D', 'W', 'G' or 'Q'.");
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid selection. Please enter 'T', 'C', 'D', 'W', 'G' or 'Q'.");
             }
       }
     }
@@ -116,55 +118,56 @@ public class ActionView extends View
         try{
             MapControl.movePlayerToLocation(player, coordinates);
         }catch (MapControlException me){
-            System.out.println(me.getMessage());
+            ErrorView.display(this.getClass().getName(),
+                    me.getMessage());
         }
     }
 
     private void collectObject() {
-        System.out.println("*** collectObject() called ***");
+        this.console.println("*** collectObject() called ***");
     }
 
     private void sleep() {
-        System.out.println("*** sleep() called ***");
+        this.console.println("*** sleep() called ***");
     }
 
     private void eat() {
-        System.out.println("*** eat() called ***");
+        this.console.println("*** eat() called ***");
     }
 
     private void drink() {
-        System.out.println("*** drink() called ***");
+        this.console.println("*** drink() called ***");
     }
 
     private void hunt() {
-        System.out.println("*** hunt() called ***");
+        this.console.println("*** hunt() called ***");
     }
 
     private void fish() {
-        System.out.println("*** fish() called ***");
+        this.console.println("*** fish() called ***");
     }
 
     private void moveTravel() {
-        System.out.println("******");
+        this.console.println("******");
     }
 
     private void makeTool() {
-        System.out.println("***makeTool() called***");
+        this.console.println("***makeTool() called***");
     }
 
     private void makeContainer() {
-        System.out.println("***makeContainer() called***");
+        this.console.println("***makeContainer() called***");
     }
 
     private void makeDevice() {
-        System.out.println("***makeDevice() called***");
+        this.console.println("***makeDevice() called***");
     }
 
     private void makeWeapon() {
-        System.out.println("***makeWeapon() called***");
+        this.console.println("***makeWeapon() called***");
     }
 
     private void makeGarment() {
-        System.out.println("***makeGarment() called***");
+        this.console.println("***makeGarment() called***");
     }
 }

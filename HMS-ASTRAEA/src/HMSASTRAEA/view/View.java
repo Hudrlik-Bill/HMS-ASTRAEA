@@ -35,7 +35,7 @@ public abstract class View implements ViewInterface
         boolean check = false;
             do 
             {
-                System.out.println(displayMenu);
+                this.console.println(displayMenu);
                 String userChoice = this.getUserChoice();
                 if (userChoice.toUpperCase().equals("Q"))
                 {
@@ -49,7 +49,7 @@ public abstract class View implements ViewInterface
     @Override
     public String getUserChoice()
     {
-        System.out.println("\nPlease enter your choice: ");
+        this.console.println("\nPlease enter your choice: ");
             String userChoice = null;
         try {
             userChoice = this.keyboard.readLine();
@@ -76,7 +76,8 @@ public abstract class View implements ViewInterface
                 number = Double.parseDouble(value);
                 
             }catch (NumberFormatException nf){
-                System.out.println("\nYou must enter a valid number. "
+                ErrorView.display(this.getClass().getName(),
+                        "\nYou must enter a valid number. "
                                     +"Try again or enter Q to quit.");
             }
             
@@ -84,7 +85,27 @@ public abstract class View implements ViewInterface
        
     }
 
-    private String getInput() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getInput() {
+        boolean valid = false;
+        String selection = null;
+        try {
+            // While a valid name has not been retrieved
+            while (!valid) {
+                // get the value entered from the keyboard
+                selection = this.keyboard.readLine();
+                selection = selection.trim();
+            
+                if (selection.length() < 1) {
+                    ErrorView.display(this.getClass().getName(),
+                            "\n*** Invalid entry *** Try again");
+                    continue;
+                }
+                break;
+            }
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
+        }
+        return selection;
     }
 }
