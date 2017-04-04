@@ -153,16 +153,18 @@ public class GameControl
         mapInventory.setContainerID(6);
         estherInventory.setContainerDescription("Whatever is on Esther's person");
         containerList.add(new Container(estherInventory));
-        
+        int[] carriedItems = {0,2,0,0,0,0,3,1,0,0,0,0,0,0,0};
+        containerList.setCarriedItems(carriedItems);
         return containerList;
     }
     
         public static Health createHealthStatus() 
     {
-        int[] initialHealth;
-        initialHealth = Health.setOverallHealth(50);
+        int[] initialHealth = {100,100,100,100};
+        Health currentHealth = new Health();
+        currentHealth.setOverallHealth(initialHealth);
         System.out.println("***Health status set at 50%***");
-        return null;
+        return currentHealth;
     }
 
     private static Map initializeMap() 

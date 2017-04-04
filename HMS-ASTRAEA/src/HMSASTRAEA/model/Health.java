@@ -23,6 +23,16 @@ public class Health implements Serializable
     Full health for all types is 100.
     
     */
+    public static String[] healthAddress = {
+    "injury",//0
+    "hunger",//1
+    "thirst",//2
+    "fatigue"//3
+};
+
+    public void setOverallHealth(int[] overallHealth) {
+        this.overallHealth = overallHealth;
+    }
     
     private Game game;
 
@@ -33,6 +43,9 @@ public class Health implements Serializable
     public void eat(int amount){//eating reduces hunger
         overallHealth[1]+=amount;
         if(overallHealth[1]>100) overallHealth[1]=100;
+    }
+    public void fatigue(int amount){
+        overallHealth[3]-=amount;
     }
     public void drink(int amount){//drinking reduces thirst
         overallHealth[2]+=amount;

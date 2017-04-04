@@ -9,7 +9,7 @@ package HMSASTRAEA.model;
  *
  * @author Teancum
  */
-class Item 
+public class Item 
 {
     private int itemType;
     private double itemWeight;

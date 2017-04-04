@@ -19,7 +19,16 @@ public class Inventory implements Serializable
 {
     private ArrayList<Container>containerList;
     private ArrayList<Container>defaultList;
+    private int[] carriedItems; 
+    
+    
+    public int[] getCarriedItems() {
+        return carriedItems;
+    }
 
+    public void setCarriedItems(int[] carriedItems) {
+        this.carriedItems = carriedItems;
+    }
 
     public Inventory() 
     {

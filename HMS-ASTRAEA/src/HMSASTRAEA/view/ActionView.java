@@ -5,9 +5,14 @@
  */
 package HMSASTRAEA.view;
 
+import HMSASTRAEA.control.GameControl;
+import static HMSASTRAEA.control.InventoryControl.inventoryAddress;
 import HMSASTRAEA.control.MapControl;
+import static HMSASTRAEA.model.Health.healthAddress;
 import HMSASTRAEA.model.Player;
 import HMSASTREA.exceptions.MapControlException;
+import HMSASTRAEA.model.Item;
+import HMSASTRAEA.model.Item.gameItemList;
 import java.awt.Point;
 import java.io.IOException;
 import java.util.Scanner;
@@ -69,6 +74,22 @@ public class ActionView extends View
 
     private void search() {
         this.console.println("*** search() called ***");
+        
+        GameControl.getCurrentGame().getHealth().passTime();
+        GameControl.getCurrentGame().getHealth().fatigue(5);
+        int[] currentItems = GameControl.getCurrentGame().getInventory().getCarriedItems();
+        
+        currentItems[1]+=5;//gather water
+        
+        GameControl.getCurrentGame().getInventory().setCarriedItems(currentItems);
+        for(int i= 0;i<4;i++){
+            this.console.println(healthAddress[i]);
+            this.console.println(GameControl.getCurrentGame().getHealth().getOverallHealth()[i]);
+        }
+        for(int j = 0;j<15;j++){
+            this.console.println(inventoryAddress[j]);
+            this.console.println(GameControl.getCurrentGame().getInventory().getCarriedItems()[j]);
+        }
     }
 
     private void buildItem() 
@@ -129,22 +150,95 @@ public class ActionView extends View
 
     private void sleep() {
         this.console.println("*** sleep() called ***");
+        GameControl.getCurrentGame().getHealth().rest();
+        for(int i= 0;i<4;i++){
+            this.console.println(healthAddress[i]);
+            this.console.println(GameControl.getCurrentGame().getHealth().getOverallHealth()[i]);
+        }
+        for(int j = 0;j<15;j++){
+            this.console.println(inventoryAddress[j]);
+            this.console.println(GameControl.getCurrentGame().getInventory().getCarriedItems()[j]);
+        }
+        
     }
 
     private void eat() {
         this.console.println("*** eat() called ***");
+        int[] currentItems = GameControl.getCurrentGame().getInventory().getCarriedItems();
+        if(currentItems[6]<1){
+            this.console.println("You have no food");
+            return;
+        }
+        currentItems[6]--;
+        GameControl.getCurrentGame().getInventory().setCarriedItems(currentItems);
+        GameControl.getCurrentGame().getHealth().eat(10);
+        for(int i= 0;i<4;i++){
+            this.console.println(healthAddress[i]);
+            this.console.println(GameControl.getCurrentGame().getHealth().getOverallHealth()[i]);
+        }
+        for(int j = 0;j<15;j++){
+            this.console.println(inventoryAddress[j]);
+            this.console.println(GameControl.getCurrentGame().getInventory().getCarriedItems()[j]);
+        }
     }
 
     private void drink() {
         this.console.println("*** drink() called ***");
+        int[] currentItems = GameControl.getCurrentGame().getInventory().getCarriedItems();
+        if(currentItems[1]<1){
+            this.console.println("You have no water");
+            return;
+        }
+        currentItems[1]--;
+        GameControl.getCurrentGame().getInventory().setCarriedItems(currentItems);
+        GameControl.getCurrentGame().getHealth().drink(10);
+        for(int i= 0;i<4;i++){
+            this.console.println(healthAddress[i]);
+            this.console.println(GameControl.getCurrentGame().getHealth().getOverallHealth()[i]);
+        }
+        for(int j = 0;j<15;j++){
+            this.console.println(inventoryAddress[j]);
+            this.console.println(GameControl.getCurrentGame().getInventory().getCarriedItems()[j]);
+        }
     }
 
     private void hunt() {
         this.console.println("*** hunt() called ***");
+        GameControl.getCurrentGame().getHealth().passTime();
+        GameControl.getCurrentGame().getHealth().fatigue(10);
+        int[] currentItems = GameControl.getCurrentGame().getInventory().getCarriedItems();
+        
+        currentItems[6]+=3;//get some food
+  
+        GameControl.getCurrentGame().getInventory().setCarriedItems(currentItems);
+        for(int i= 0;i<4;i++){
+            this.console.println(healthAddress[i]);
+            this.console.println(GameControl.getCurrentGame().getHealth().getOverallHealth()[i]);
+        }
+        for(int j = 0;j<15;j++){
+            this.console.println(inventoryAddress[j]);
+            this.console.println(GameControl.getCurrentGame().getInventory().getCarriedItems()[j]);
+        }
     }
 
     private void fish() {
         this.console.println("*** fish() called ***");
+        GameControl.getCurrentGame().getHealth().passTime();
+        GameControl.getCurrentGame().getHealth().fatigue(5);
+        int[] currentItems = GameControl.getCurrentGame().getInventory().getCarriedItems();
+        
+        currentItems[6]+=2;//get some food
+  
+        
+        GameControl.getCurrentGame().getInventory().setCarriedItems(currentItems);
+        for(int i= 0;i<4;i++){
+            this.console.println(healthAddress[i]);
+            this.console.println(GameControl.getCurrentGame().getHealth().getOverallHealth()[i]);
+        }
+        for(int j = 0;j<15;j++){
+            this.console.println(inventoryAddress[j]);
+            this.console.println(GameControl.getCurrentGame().getInventory().getCarriedItems()[j]);
+        }
     }
 
     private void moveTravel() {
@@ -153,6 +247,7 @@ public class ActionView extends View
 
     private void makeTool() {
         this.console.println("***makeTool() called***");
+        
     }
 
     private void makeContainer() {
