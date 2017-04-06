@@ -1,0 +1,2 @@
+HMSASTRAEA.view.ActionView - Invalid selection. Please enter 'S', 'B', 'M', 'C', 'Z', 'D', 'H', 'F' or 'Q'
+HMSASTRAEA.view.GameMenuView - Invalid selection. Please enter 'A', 'I', 'H', 'M', 'S', or 'Q'
